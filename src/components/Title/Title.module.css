@@ -1,0 +1,29 @@
+.title {
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.small {
+  font-size: 78px;
+}
+
+.medium {
+  font-size: 80px;
+}
+
+.large {
+  font-size: 82px;
+}
+
+.white {
+  color: var(--paper-color);
+}
+
+.black {
+  color: var(--text-primary-color);
+}
+
+.blue {
+  color: var(--secondary-main-color);
+}
