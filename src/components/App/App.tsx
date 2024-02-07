@@ -1,9 +1,13 @@
+import { Paragraph } from '../Paragraph';
 import { Title } from '../Title';
 
 export function App() {
   return (
-    <Title size='large' color='blue'>
-      Yo!
-    </Title>
+    <>
+      <Title>Yo!</Title>
+      <Paragraph capitals={true} size='xl'>
+        Happy couple
+      </Paragraph>
+    </>
   );
 }

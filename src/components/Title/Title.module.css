@@ -2,28 +2,34 @@
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-}
-
-.small {
   font-size: 78px;
-}
-
-.medium {
-  font-size: 80px;
-}
-
-.large {
-  font-size: 82px;
-}
-
-.white {
-  color: var(--paper-color);
-}
-
-.black {
   color: var(--text-primary-color);
 }
 
-.blue {
+.title--small {
+  font-size: 78px;
+}
+
+.title--medium {
+  font-size: 80px;
+}
+
+.title--large {
+  font-size: 82px;
+}
+
+.title--white {
+  color: var(--paper-color);
+}
+
+.title--black {
+  color: var(--text-primary-color);
+}
+
+.title--blue {
   color: var(--secondary-main-color);
+}
+
+.title--capitals {
+  text-transform: uppercase;
 }
