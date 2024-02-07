@@ -10,7 +10,9 @@ export function App() {
       <Paragraph capitals={true} size='xl'>
         Happy couple
       </Paragraph>
-      <Button icon={ShareIcon}>Watch movie</Button>
+      <Button icon={ShareIcon} fill='bgSecondaryFill'>
+        Watch movie
+      </Button>
     </>
   );
 }
