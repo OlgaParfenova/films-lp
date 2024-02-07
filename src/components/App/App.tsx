@@ -1,5 +1,7 @@
+import { Button } from '../Button';
 import { Paragraph } from '../Paragraph';
 import { Title } from '../Title';
+import ShareIcon from '../../assets/icons/Share.svg';
 
 export function App() {
   return (
@@ -8,6 +10,7 @@ export function App() {
       <Paragraph capitals={true} size='xl'>
         Happy couple
       </Paragraph>
+      <Button icon={ShareIcon}>Watch movie</Button>
     </>
   );
 }

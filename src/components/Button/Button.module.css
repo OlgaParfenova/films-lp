@@ -1,0 +1,95 @@
+.button {
+  border: 2px solid var(--primary-main-color);
+  border-radius: 50px;
+  background-color: none;
+  color: var(--primary-main-color);
+  font-size: 32px;
+  padding: 20px 70px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  cursor: pointer;
+}
+
+.button--defaultBorder {
+  border: 2px solid var(--paper-color);
+  background-color: none;
+  text-transform: capitalize;
+  color: var(--paper-color);
+}
+
+.button--primaryBorder {
+  border: 2px solid var(--primary-main-color);
+  background-color: none;
+  text-transform: capitalize;
+  color: var(--primary-main-color);
+}
+
+.button--secondaryBorder {
+  border: 2px solid var(--secondary-main-color);
+  background-color: none;
+  text-transform: capitalize;
+  color: var(--secondary-main-color);
+}
+
+.button--noBorder {
+  border: none;
+  background-color: none;
+}
+
+.button--primaryFill {
+  padding: 20px 25px;
+  background-color: var(--primary-main-color);
+  color: var(--paper-color);
+  border: none;
+}
+
+.button--bgSecondaryFill {
+  padding: 20px 25px;
+  background-color: var(--bg-secondary-color);
+  color: var(--secondary-main-color);
+  border: none;
+}
+
+.button--secondaryFill {
+  padding: 20px 25px;
+  background-color: var(--secondary-main-color);
+  color: var(--paper-color);
+  border: none;
+}
+
+.button--capitalised {
+  text-transform: uppercase;
+}
+
+.button--defaultText {
+  color: var(--paper-color);
+}
+
+.button--primaryText {
+  color: var(--text-primary-color);
+}
+
+.button--secondaryText {
+  color: var(--secondary-main-color);
+}
+
+.button--small {
+  font-size: 32px;
+}
+
+.button--medium {
+  font-size: 36px;
+}
+
+.button--large {
+  font-size: 38px;
+}
+
+.button--icon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
