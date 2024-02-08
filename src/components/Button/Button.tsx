@@ -17,20 +17,20 @@ export const Button: FC<ButtonProps> = ({
   const buttonClassname = useMemo(() => {
     return classNames(
       styles['button'],
-      styles[`button--${fill}`],
-      styles[`button--${textColor}`],
-      styles[`button--${size}`],
+      styles[`button-${fill}`],
+      styles[`button-${textColor}`],
+      styles[`button-${size}`],
       className,
       {
-        [styles[`button--${border}`]]: border,
-        [styles['button--capitalised']]: capitalised,
-        [styles['button--icon']]: icon,
+        [styles[`button-${border}`]]: border,
+        [styles['button-capitalised']]: capitalised,
+        [styles['button-icon']]: icon,
       }
     );
   }, [border, fill, capitalised, textColor, icon, size, className]);
   return (
     <button {...props} className={buttonClassname}>
-      {icon && <img src={icon} className={styles['button--icon']} />}
+      {icon && <img src={icon} className={styles['button-icon']} />}
       {children}
     </button>
   );

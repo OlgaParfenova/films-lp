@@ -13,11 +13,11 @@ export const Title: FC<TitleProps> = ({
   const titleClassnames = useMemo(() => {
     return classNames(
       styles['title'],
-      styles[`title--${size}`],
-      styles[`title--${color}`],
+      styles[`title-${size}`],
+      styles[`title-${color}`],
       className,
       {
-        [styles['title--capitals']]: capitals === true,
+        [styles['title-capitals']]: capitals === true,
       }
     );
   }, [className, size, color, capitals]);

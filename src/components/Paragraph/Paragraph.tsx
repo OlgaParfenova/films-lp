@@ -13,11 +13,11 @@ export const Paragraph: FC<ParagraphProps> = ({
   const paragraphClassname = useMemo(() => {
     return classNames(
       styles['paragraph'],
-      styles[`paragraph--${size}`],
-      styles[`paragraph--${color}`],
+      styles[`paragraph-${size}`],
+      styles[`paragraph-${color}`],
       className,
       {
-        [styles['paragraph--capitals']]: capitals === true,
+        [styles['paragraph-capitals']]: capitals === true,
       }
     );
   }, [className, size, color, capitals]);

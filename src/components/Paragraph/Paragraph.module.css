@@ -6,50 +6,50 @@
   color: var(--text-primary-color);
 }
 
-.paragraph--xs {
+.paragraph-xs {
   font-size: 24px;
 }
 
-.paragraph--s {
+.paragraph-s {
   font-size: 28px;
 }
 
-.paragraph--m {
+.paragraph-m {
   font-size: 32px;
 }
 
-.paragraph--xm {
+.paragraph-xm {
   font-size: 38px;
 }
 
-.paragraph--l {
+.paragraph-l {
   font-size: 42px;
 }
 
-.paragraph--xl {
+.paragraph-xl {
   font-size: 52px;
 }
 
-.paragraph--white {
+.paragraph-default {
   color: var(--paper-color);
 }
 
-.paragraph--black {
+.paragraph-primary {
   color: var(--text-primary-color);
 }
 
-.paragraph--blue {
+.paragraph-secondary {
   color: var(--secondary-main-color);
 }
 
-.paragraph--pink {
+.paragraph-pink {
   color: var(--primary-main-color);
 }
 
-.paragraph--gray {
+.paragraph-gray {
   color: var(--text-secondary-color);
 }
 
-.paragraph--capitals {
+.paragraph-capitals {
   text-transform: uppercase;
 }

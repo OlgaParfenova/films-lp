@@ -6,30 +6,30 @@
   color: var(--text-primary-color);
 }
 
-.title--small {
+.title-small {
   font-size: 78px;
 }
 
-.title--medium {
+.title-medium {
   font-size: 80px;
 }
 
-.title--large {
+.title-large {
   font-size: 82px;
 }
 
-.title--white {
+.title-default {
   color: var(--paper-color);
 }
 
-.title--black {
+.title-primary {
   color: var(--text-primary-color);
 }
 
-.title--blue {
+.title-secondary {
   color: var(--secondary-main-color);
 }
 
-.title--capitals {
+.title-capitals {
   text-transform: uppercase;
 }
