@@ -1,0 +1,33 @@
+.navbar {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  height: 140px;
+  padding: 16px 120px;
+  z-index: 99;
+}
+
+.navbar__content {
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar__logo {
+  cursor: pointer;
+  margin-right: 50px;
+}
+
+.navbar__buttons-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}

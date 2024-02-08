@@ -3,8 +3,8 @@
   border-radius: 50px;
   background-color: none;
   color: var(--primary-main-color);
-  font-size: 32px;
-  padding: 20px 70px;
+  font-size: 16px;
+  padding: 10px 36px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -73,28 +73,28 @@
 }
 
 .button-primaryFill {
-  padding: 20px 25px;
+  padding: 10px 14px;
   background-color: var(--primary-main-color);
   color: var(--paper-color);
   border: none;
 }
 
 .button-primaryFill:hover {
-  padding: 20px 25px;
+  padding: 10px 14px;
   background-color: var(--secondary-main-color);
   color: var(--paper-color);
   border: none;
 }
 
 .button-bgSecondaryFill {
-  padding: 20px 25px;
+  padding: 10px 14px;
   background-color: var(--bg-secondary-color);
   color: var(--secondary-main-color);
   border: none;
 }
 
 .button-secondaryFill {
-  padding: 20px 25px;
+  padding: 10px 14px;
   background-color: var(--secondary-main-color);
   color: var(--paper-color);
   border: none;
@@ -117,15 +117,15 @@
 }
 
 .button-small {
-  font-size: 32px;
+  font-size: 16px;
 }
 
 .button-medium {
-  font-size: 36px;
+  font-size: 18px;
 }
 
 .button-large {
-  font-size: 38px;
+  font-size: 20px;
 }
 
 .button-icon {
@@ -133,5 +133,5 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  gap: 15px;
+  gap: 8px;
 }

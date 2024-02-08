@@ -2,20 +2,20 @@
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  font-size: 78px;
+  font-size: 38px;
   color: var(--text-primary-color);
 }
 
 .title-small {
-  font-size: 78px;
+  font-size: 38px;
 }
 
 .title-medium {
-  font-size: 80px;
+  font-size: 40px;
 }
 
 .title-large {
-  font-size: 82px;
+  font-size: 42px;
 }
 
 .title-default {
