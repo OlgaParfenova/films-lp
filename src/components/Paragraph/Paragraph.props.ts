@@ -2,7 +2,7 @@ import { HTMLAttributes } from 'react';
 
 type Paragraph = {
   size?: 'xs' | 's' | 'm' | 'xm' | 'l' | 'xl';
-  color?: 'black' | 'white' | 'blue' | 'pink' | 'gray';
+  color?: 'primary' | 'default' | 'secondary' | 'pink' | 'gray';
   capitals?: boolean;
 };
 

@@ -2,7 +2,7 @@ import { HTMLAttributes } from 'react';
 
 type Title = {
   size?: 'small' | 'medium' | 'large';
-  color?: 'white' | 'black' | 'blue';
+  color?: 'default' | 'primary' | 'secondary';
   capitals?: boolean;
 };
 
