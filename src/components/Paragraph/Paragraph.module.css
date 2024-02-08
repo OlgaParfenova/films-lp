@@ -1,0 +1,55 @@
+.paragraph {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  color: var(--text-primary-color);
+}
+
+.paragraph--xs {
+  font-size: 24px;
+}
+
+.paragraph--s {
+  font-size: 28px;
+}
+
+.paragraph--m {
+  font-size: 32px;
+}
+
+.paragraph--xm {
+  font-size: 38px;
+}
+
+.paragraph--l {
+  font-size: 42px;
+}
+
+.paragraph--xl {
+  font-size: 52px;
+}
+
+.paragraph--white {
+  color: var(--paper-color);
+}
+
+.paragraph--black {
+  color: var(--text-primary-color);
+}
+
+.paragraph--blue {
+  color: var(--secondary-main-color);
+}
+
+.paragraph--pink {
+  color: var(--primary-main-color);
+}
+
+.paragraph--gray {
+  color: var(--text-secondary-color);
+}
+
+.paragraph--capitals {
+  text-transform: uppercase;
+}
