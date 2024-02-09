@@ -1,5 +1,10 @@
-import { Paragraph } from '../../components';
+import { Paragraph, TextInput } from '../../components';
 
 export const FilmsPage = () => {
-  return <Paragraph>Films Page</Paragraph>;
+  return (
+    <>
+      <Paragraph>Films Page</Paragraph>
+      <TextInput placeholder='Email' />
+    </>
+  );
 };
