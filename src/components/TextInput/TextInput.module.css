@@ -4,8 +4,8 @@
   border: 2px solid var(--text-field-color);
   border-radius: 12px;
   background-color: var(--default-color);
-  min-width: 520px;
-  min-height: 50px;
+  width: 520px;
+  height: 50px;
 }
 
 .input-block:hover {
@@ -19,7 +19,7 @@
 .input-block__input {
   width: 100%;
   height: 100%;
-  padding: 18px 26px;
+  padding: 14px 30px;
   font-size: 16px;
   color: var(--text-secondary-color);
   border: none;
@@ -38,7 +38,7 @@
 .input-block__label {
   position: absolute;
   top: 50%;
-  left: 26px;
+  left: 30px;
   transform: translateY(-50%);
   transition: all 0.2s ease;
   pointer-events: none;
@@ -49,6 +49,16 @@
 
 .input-block.focused .input-block__label {
   top: 30%;
+  left: 30px;
   transform: translateY(-100%);
   font-size: 10px;
+  color: var(--secondary-main-color);
+}
+
+.input-block.with-content .input-block__label {
+  top: 30%;
+  left: 30px;
+  transform: translateY(-100%);
+  font-size: 10px;
+  color: var(--text-secondary-color);
 }

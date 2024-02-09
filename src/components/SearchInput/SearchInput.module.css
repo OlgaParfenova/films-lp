@@ -1,0 +1,7 @@
+.search-input__icon {
+  max-height: 20px;
+  position: absolute;
+  top: 32%;
+  left: 6px;
+  fill: var(--text-secondary-color);
+}
