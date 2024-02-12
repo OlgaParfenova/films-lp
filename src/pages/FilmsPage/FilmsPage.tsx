@@ -1,4 +1,10 @@
-import { FilmCard, Paragraph, SearchInput, TextInput } from '../../components';
+import {
+  DateInput,
+  FilmCard,
+  Paragraph,
+  SearchInput,
+  TextInput,
+} from '../../components';
 import Poster from '../../assets/images/1.png';
 
 const filmData = [
@@ -23,6 +29,7 @@ export const FilmsPage = () => {
           rating={element.rating}
         />
       ))}
+      <DateInput />
     </>
   );
 };

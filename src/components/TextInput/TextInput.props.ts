@@ -3,7 +3,7 @@ import { HTMLProps, ReactNode } from 'react';
 type TextInput = {
   isError?: boolean;
   isSuccess?: boolean;
-  placeholder: string;
+  placeholder?: string;
   icon?: ReactNode;
 };
 

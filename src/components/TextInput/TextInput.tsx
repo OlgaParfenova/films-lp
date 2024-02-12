@@ -31,7 +31,9 @@ export const TextInput: FC<TextInputProps> = ({
 
   return (
     <div className={divClassnames}>
-      <label className={styles['input-block__label']}>{placeholder}</label>
+      {placeholder ? (
+        <label className={styles['input-block__label']}>{placeholder}</label>
+      ) : null}
       {icon || null}
       <input
         {...props}
