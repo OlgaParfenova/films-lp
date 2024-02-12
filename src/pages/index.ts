@@ -1,4 +1,4 @@
-export * from './CategoriesPage';
+export * from './TVShowsPage';
 export * from './FilmsPage';
 export * from './LoginPage';
 export * from './PeoplePage';

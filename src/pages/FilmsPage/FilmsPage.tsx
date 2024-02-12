@@ -1,4 +1,13 @@
-import { Paragraph, SearchInput, TextInput } from '../../components';
+import { FilmCard, Paragraph, SearchInput, TextInput } from '../../components';
+import Poster from '../../assets/images/1.png';
+
+const filmData = [
+  {
+    title: 'Film Title',
+    posterURL: Poster,
+    rating: 6.3,
+  },
+];
 
 export const FilmsPage = () => {
   return (
@@ -6,6 +15,14 @@ export const FilmsPage = () => {
       <Paragraph>Films Page</Paragraph>
       <TextInput placeholder='Email' />
       <SearchInput placeholder='Введите название фильма' />
+      {filmData.map((element) => (
+        <FilmCard
+          key={element.title}
+          title={element.title}
+          posterURL={element.posterURL}
+          rating={element.rating}
+        />
+      ))}
     </>
   );
 };

@@ -16,7 +16,7 @@ export const Navbar = () => {
         </div>
         <div className={styles['navbar__buttons-container']}>
           <NavbarButton to={routes.mainPageURL} text='Films' />
-          <NavbarButton to={routes.categoriesPageURL} text='Categories' />
+          <NavbarButton to={routes.tvShowsPageURL} text='TV Shows' />
           <NavbarButton to={routes.peoplePageURL} text='People' />
           <div>|</div>
           <NavbarButton

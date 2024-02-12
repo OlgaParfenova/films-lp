@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import {
-  CategoriesPage,
+  TVShowsPage,
   FilmsPage,
   LoginPage,
   NotFoundPage,
@@ -20,8 +20,8 @@ export const router = createBrowserRouter([
         element: <FilmsPage />,
       },
       {
-        path: routes.categoriesPageURL,
-        element: <CategoriesPage />,
+        path: routes.tvShowsPageURL,
+        element: <TVShowsPage />,
       },
       {
         path: routes.peoplePageURL,
