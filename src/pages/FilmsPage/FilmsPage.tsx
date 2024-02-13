@@ -3,6 +3,7 @@ import {
   FilmCard,
   Paragraph,
   SearchInput,
+  Select,
   TextInput,
 } from '../../components';
 import Poster from '../../assets/images/1.png';
@@ -14,6 +15,11 @@ const filmData = [
     rating: 6.3,
   },
 ];
+
+const selectData = {
+  options: ['One', 'Two', 'Three', 'four', 'five', 'six'],
+  current: 'six',
+};
 
 export const FilmsPage = () => {
   return (
@@ -30,6 +36,7 @@ export const FilmsPage = () => {
         />
       ))}
       <DateInput />
+      <Select options={selectData.options} />
     </>
   );
 };
