@@ -6,3 +6,4 @@ export * from './SearchInput';
 export * from './FilmCard';
 export * from './DateInput';
 export * from './Select';
+export * from './Slider';

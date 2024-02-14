@@ -4,6 +4,7 @@ import {
   Paragraph,
   SearchInput,
   Select,
+  Slider,
   TextInput,
 } from '../../components';
 import Poster from '../../assets/images/1.png';
@@ -37,6 +38,13 @@ export const FilmsPage = () => {
       ))}
       <DateInput />
       <Select options={selectData.options} />
+      <Slider
+        min={0}
+        max={50}
+        step={10}
+        numValues={5}
+        valueName='Number of reviews'
+      />
     </>
   );
 };
