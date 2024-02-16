@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import Checkbox, { CheckboxChangeEvent } from 'antd/es/checkbox';
 import { Slider } from 'antd';
 import { Button, DateInput, Paragraph, Select } from '../../components';
 import { Paper } from '../Paper';
-import styles from './Filters.module.css';
+import styles from './FilmFilters.module.css';
+import { FilmFiltersProps } from './FilmFilters.props';
+import classNames from 'classnames';
 
-export const Filters = () => {
+export const FilmFilters: FC<FilmFiltersProps> = ({ className }) => {
   const [isChecked, setIsChecked] = useState(true);
 
   const handleCheckboxChange = (e: CheckboxChangeEvent) => {
@@ -13,7 +15,7 @@ export const Filters = () => {
   };
 
   return (
-    <div className={styles['filters']}>
+    <div className={classNames(styles['filters'], className)}>
       <Paper>
         <div className={styles['filters__element']}>
           <Paragraph size='m' className={styles['filters__element-title']}>

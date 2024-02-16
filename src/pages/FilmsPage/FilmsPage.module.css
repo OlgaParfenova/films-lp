@@ -1,0 +1,15 @@
+.filmsPage__title {
+  margin-bottom: 40px;
+}
+
+.filmsPage__content-wrapper {
+  width: 100%;
+  display: flex;
+  /* align-items: stretch;
+  align-content: stretch; */
+  /* box-sizing: border-box; */
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 40px;
+}

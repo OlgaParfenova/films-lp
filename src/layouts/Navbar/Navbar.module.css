@@ -5,9 +5,8 @@
   width: 100%;
   top: 0;
   left: 0;
-  position: fixed;
-  height: 140px;
-  padding: 16px 120px;
+  position: static;
+  /* height: 140px; */
   z-index: 99;
 }
 
