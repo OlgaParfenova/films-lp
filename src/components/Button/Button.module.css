@@ -116,6 +116,11 @@
   color: var(--secondary-main-color);
 }
 
+.button-extra-small {
+  font-size: 12px;
+  padding: 6px 10px;
+}
+
 .button-small {
   font-size: 16px;
 }

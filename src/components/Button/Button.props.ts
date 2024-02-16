@@ -6,7 +6,7 @@ type Button = {
   capitalised?: boolean;
   textColor?: 'defaultText' | 'primaryText' | 'secondaryText';
   icon?: string;
-  size?: 'small' | 'medium' | 'large';
+  size?: 'extra-small' | 'small' | 'medium' | 'large';
 };
 
 export type ButtonProps = HTMLAttributes<HTMLButtonElement> & Button;

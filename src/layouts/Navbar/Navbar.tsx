@@ -11,7 +11,7 @@ export const Navbar = () => {
       <div className={styles['navbar__content']}>
         <div className={styles['navbar__logo']}>
           <NavLink to={routes.mainPageURL}>
-            <img src={Logo} alt='Logo' />
+            <Logo />
           </NavLink>
         </div>
         <div className={styles['navbar__buttons-container']}>

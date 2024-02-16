@@ -19,6 +19,6 @@ export const DateInput: FC<DateInputProps> = ({
     }
   };
   return (
-    <TextInput {...props} value={value} onChange={handleChange} type='date' />
+    <TextInput value={value} onChange={handleChange} type='date' {...props} />
   );
 };

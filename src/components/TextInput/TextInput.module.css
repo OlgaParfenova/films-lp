@@ -4,22 +4,23 @@
   border: 2px solid var(--text-field-color);
   border-radius: 12px;
   background-color: var(--default-color);
-  width: 520px;
+  width: 100%;
   height: 50px;
+  cursor: pointer;
 }
 
 .input-block:hover {
-  border-color: var(--secondary-main-color);
+  border-color: var(--primary-main-color);
 }
 
 .input-block.focused {
-  border-color: var(--secondary-main-color);
+  border-color: var(--primary-main-color);
 }
 
 .input-block__input {
   width: 100%;
   height: 100%;
-  padding: 14px 30px;
+  padding: 14px 14px;
   font-size: 16px;
   color: var(--text-secondary-color);
   border: none;
@@ -52,7 +53,7 @@
   left: 30px;
   transform: translateY(-100%);
   font-size: 10px;
-  color: var(--secondary-main-color);
+  color: var(--primary-main-color);
 }
 
 .input-block.with-content .input-block__label {

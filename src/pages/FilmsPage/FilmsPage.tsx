@@ -1,16 +1,14 @@
 import {
-  Checkbox,
-  CheckboxGroup,
   DateInput,
   FilmCard,
   Paragraph,
   SearchInput,
   Select,
-  Slider,
   TextInput,
 } from '../../components';
 import Poster from '../../assets/images/1.png';
 import { Marks } from '../../components/Slider/Slider.props';
+import { Filters } from '../../layouts';
 
 const filmData = [
   {
@@ -58,18 +56,7 @@ export const FilmsPage = () => {
       ))}
       <DateInput />
       <Select options={selectData.options} />
-      <Slider
-        range={false}
-        min={0}
-        defaultValue={30}
-        max={250}
-        marks={sliderMarks}
-      />
-      <Checkbox value='Check me!' />
-      <CheckboxGroup
-        options={optionsCheckboxGroup}
-        defaultValue={defaultValueCheckboxGroup}
-      />
+      <Filters />
     </>
   );
 };
