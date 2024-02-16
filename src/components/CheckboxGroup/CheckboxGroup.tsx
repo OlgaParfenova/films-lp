@@ -1,13 +1,11 @@
-import { Slider as AntSlider, ConfigProvider } from 'antd';
+import { Checkbox, ConfigProvider } from 'antd';
 import { FC } from 'react';
-import { SliderProps } from './Slider.props';
 import { lightTheme } from '../../constants';
+import { CheckboxGroupProps } from './CheckboxGroup.props';
 
-export const Slider: FC<SliderProps> = ({
-  min,
-  max,
-  marks,
-  range,
+export const CheckboxGroup: FC<CheckboxGroupProps> = ({
+  options,
+  defaultValue,
   ...props
 }) => {
   //   const [theme, setTheme] = useState<'light' | 'dark'>('light'); ::TODO
@@ -16,7 +14,11 @@ export const Slider: FC<SliderProps> = ({
     <ConfigProvider
       //   theme={{ token: theme === 'light' ? lightTheme : darkTheme }}> ::TODO
       theme={{ token: lightTheme }}>
-      <AntSlider range={range} marks={marks} min={min} max={max} {...props} />
+      <Checkbox.Group
+        options={options}
+        defaultValue={defaultValue}
+        {...props}
+      />
     </ConfigProvider>
   );
 };

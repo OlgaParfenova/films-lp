@@ -1,4 +1,6 @@
 import {
+  Checkbox,
+  CheckboxGroup,
   DateInput,
   FilmCard,
   Paragraph,
@@ -32,6 +34,14 @@ const sliderMarks: Marks = {
   250: '250',
 };
 
+const optionsCheckboxGroup = [
+  { label: 'Apple', value: 'Apple' },
+  { label: 'Pear', value: 'Pear' },
+  { label: 'Orange', value: 'Orange' },
+];
+
+const defaultValueCheckboxGroup = ['Apple'];
+
 export const FilmsPage = () => {
   return (
     <>
@@ -54,6 +64,11 @@ export const FilmsPage = () => {
         defaultValue={30}
         max={250}
         marks={sliderMarks}
+      />
+      <Checkbox value='Check me!' />
+      <CheckboxGroup
+        options={optionsCheckboxGroup}
+        defaultValue={defaultValueCheckboxGroup}
       />
     </>
   );

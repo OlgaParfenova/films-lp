@@ -7,3 +7,5 @@ export * from './FilmCard';
 export * from './DateInput';
 export * from './Select';
 export * from './Slider';
+export * from './Checkbox';
+export * from './CheckboxGroup';
