@@ -8,6 +8,7 @@ import {
   TextInput,
 } from '../../components';
 import Poster from '../../assets/images/1.png';
+import { Marks } from '../../components/Slider/Slider.props';
 
 const filmData = [
   {
@@ -20,6 +21,15 @@ const filmData = [
 const selectData = {
   options: ['One', 'Two', 'Three', 'four', 'five', 'six'],
   current: 'six',
+};
+
+const sliderMarks: Marks = {
+  0: '0',
+  20: '20',
+  30: '30',
+  100: '100',
+  150: '150',
+  250: '250',
 };
 
 export const FilmsPage = () => {
@@ -39,11 +49,11 @@ export const FilmsPage = () => {
       <DateInput />
       <Select options={selectData.options} />
       <Slider
+        range={false}
         min={0}
-        max={50}
-        step={10}
-        numValues={5}
-        valueName='Number of reviews'
+        defaultValue={30}
+        max={250}
+        marks={sliderMarks}
       />
     </>
   );
