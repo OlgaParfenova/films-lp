@@ -5,11 +5,11 @@ import { FilmsListProps } from './FilmsList.props';
 export const FilmsList: FC<FilmsListProps> = ({ films }) => {
   return films.map((element) => (
     <FilmCard
-      key={element.title}
-      //   id={element.id}
+      key={element.id}
+      id={element.id}
       title={element.title}
-      rating={element.rating}
-      posterURL={element.posterURL}
+      rating={element.vote_average}
+      posterURL={'https://image.tmdb.org/t/p/original' + element.poster_path}
     />
   ));
 };

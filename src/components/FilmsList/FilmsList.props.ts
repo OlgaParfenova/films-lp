@@ -1,15 +1,5 @@
-// import { Result } from '../../API/types'; ::TODO
-
-type FilmsMockInfo = {
-  title: string;
-  posterURL: string;
-  rating: number;
-};
-
-// export type FilmsListProps = {
-//   films: Result[];
-// };
+import { Result } from '../../API/types';
 
 export type FilmsListProps = {
-  films: FilmsMockInfo[];
+  films: Result[];
 };

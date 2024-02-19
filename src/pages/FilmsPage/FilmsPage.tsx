@@ -1,79 +1,21 @@
 import { FilmCardGrid, FilmsList, Title } from '../../components';
-import PosterOne from '../../assets/images/1.png';
 import { FilmFilters } from '../../layouts';
+import { useGetFilmsQuery } from '../../redux';
 import styles from './FilmsPage.module.css';
 
-const filmData = [
-  {
-    title: 'Film Title 1',
-    posterURL: PosterOne,
-    rating: 6.3,
-  },
-  {
-    title: 'Film Title 1',
-    posterURL: PosterOne,
-    rating: 6.3,
-  },
-  {
-    title: 'Film Title 1',
-    posterURL: PosterOne,
-    rating: 6.3,
-  },
-  {
-    title: 'Film Title 1',
-    posterURL: PosterOne,
-    rating: 6.3,
-  },
-  {
-    title: 'Film Title 1',
-    posterURL: PosterOne,
-    rating: 6.3,
-  },
-  {
-    title: 'Film Title 1',
-    posterURL: PosterOne,
-    rating: 6.3,
-  },
-  {
-    title: 'Film Title 1',
-    posterURL: PosterOne,
-    rating: 6.3,
-  },
-  {
-    title: 'Film Title 1',
-    posterURL: PosterOne,
-    rating: 6.3,
-  },
-  {
-    title: 'Film Title 1',
-    posterURL: PosterOne,
-    rating: 6.3,
-  },
-  {
-    title: 'Film Title 1',
-    posterURL: PosterOne,
-    rating: 6.3,
-  },
-  {
-    title: 'Film Title 1',
-    posterURL: PosterOne,
-    rating: 6.3,
-  },
-  {
-    title: 'Film Title 1',
-    posterURL: PosterOne,
-    rating: 6.3,
-  },
-];
-
 export const FilmsPage = () => {
+  const { data = [], isLoading } = useGetFilmsQuery(undefined);
+
+  if (isLoading) return <Title>Loading ...</Title>;
+  console.log(data.results);
+
   return (
     <>
       <Title className={styles['filmsPage__title']}>Films Page</Title>
       <div className={styles['filmsPage__content-wrapper']}>
         <FilmFilters />
         <FilmCardGrid>
-          <FilmsList films={filmData} />
+          <FilmsList films={data.results} />
         </FilmCardGrid>
       </div>
     </>

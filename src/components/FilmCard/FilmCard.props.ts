@@ -4,6 +4,8 @@ type FilmCard = {
   title: string;
   posterURL: string;
   rating: number;
+  id: string | number;
 };
 
-export type FilmCardProps = HTMLAttributes<HTMLDivElement> & FilmCard;
+export type FilmCardProps = Omit<HTMLAttributes<HTMLDivElement>, 'id'> &
+  FilmCard;
