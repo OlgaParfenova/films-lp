@@ -12,7 +12,7 @@ export const filmsApi = createApi({
   }),
   endpoints: (build) => ({
     getFilms: build.query({
-      query: () => '/movie/popular?language=en-US&page=1',
+      query: (pageNumber) => `/movie/popular?language=en-US&page=${pageNumber}`,
     }),
   }),
 });

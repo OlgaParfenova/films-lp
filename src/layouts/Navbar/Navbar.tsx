@@ -10,12 +10,12 @@ export const Navbar = () => {
     <div className={styles['navbar']}>
       <div className={styles['navbar__content']}>
         <div className={styles['navbar__logo']}>
-          <NavLink to={routes.mainPageURL}>
+          <NavLink to={routes.filmsPageURL}>
             <Logo />
           </NavLink>
         </div>
         <div className={styles['navbar__buttons-container']}>
-          <NavbarButton to={routes.mainPageURL} text='Films' />
+          <NavbarButton to={routes.filmsPageURL} text='Films' />
           <NavbarButton to={routes.tvShowsPageURL} text='TV Shows' />
           <NavbarButton to={routes.peoplePageURL} text='People' />
           <div>|</div>

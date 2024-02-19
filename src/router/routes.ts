@@ -1,5 +1,6 @@
 export const routes = {
   mainPageURL: '/',
+  filmsPageURL: '/films',
   tvShowsPageURL: '/tvshows',
   peoplePageURL: '/people',
   loginPageURL: '/login',
