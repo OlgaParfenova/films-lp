@@ -8,9 +8,9 @@ export const FilmCard: FC<FilmCardProps> = ({
   title,
   posterURL,
   rating,
-  id,
+  // id,
 }) => {
-  console.log(id);
+  // console.log(id);
   return (
     <div className={styles['card']}>
       <div className={styles['card__poster']}>

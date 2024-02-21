@@ -1,18 +1,33 @@
 import { FC, useState } from 'react';
 import Checkbox, { CheckboxChangeEvent } from 'antd/es/checkbox';
 import { Slider } from 'antd';
+import classNames from 'classnames';
+import { useSearchParams } from 'react-router-dom';
 import { Button, DateInput, Paragraph, Select } from '../../components';
 import { Paper } from '../Paper';
 import styles from './FilmFilters.module.css';
 import { FilmFiltersProps } from './FilmFilters.props';
-import classNames from 'classnames';
+
+import { useGetGenresQuery } from '../../API/genresApi/getGenresEndpoint';
 
 export const FilmFilters: FC<FilmFiltersProps> = ({ className }) => {
   const [isChecked, setIsChecked] = useState(true);
+  const [selectedGenre, setSelectedGenre] = useState<string | null>(null);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const { data: genresResponse } = useGetGenresQuery();
 
   const handleCheckboxChange = (e: CheckboxChangeEvent) => {
     setIsChecked(e.target.checked);
   };
+  const handleGenreSelect = (genre: string) => {
+    setSelectedGenre(genre);
+    const newSearchParams = new URLSearchParams(searchParams);
+    newSearchParams.set('genre', genre);
+    newSearchParams.set('page', '1');
+    setSearchParams(newSearchParams);
+  };
+
+  const genres = genresResponse ? genresResponse.genres : [];
 
   return (
     <div className={classNames(styles['filters'], className)}>
@@ -93,25 +108,15 @@ export const FilmFilters: FC<FilmFiltersProps> = ({ className }) => {
             Genres
           </Paragraph>
           <div className={styles['filters__element-genres']}>
-            <Button size='extra-small'>Action</Button>
-            <Button size='extra-small'>Adventure</Button>
-            <Button size='extra-small'>Animation</Button>
-            <Button size='extra-small'>Comedy</Button>
-            <Button size='extra-small'>Crime</Button>
-            <Button size='extra-small'>Documentary</Button>
-            <Button size='extra-small'>Drama</Button>
-            <Button size='extra-small'>Family</Button>
-            <Button size='extra-small'>Fantasy</Button>
-            <Button size='extra-small'>History</Button>
-            <Button size='extra-small'>Horror</Button>
-            <Button size='extra-small'>Music</Button>
-            <Button size='extra-small'>Mystery</Button>
-            <Button size='extra-small'>Romance</Button>
-            <Button size='extra-small'>Science Fiction</Button>
-            <Button size='extra-small'>TV Movie</Button>
-            <Button size='extra-small'>Thriller</Button>
-            <Button size='extra-small'>War</Button>
-            <Button size='extra-small'>Western</Button>
+            {genres.map(({ id, name }) => (
+              <Button
+                key={id}
+                size='extra-small'
+                onClick={() => handleGenreSelect(name)}
+                className={selectedGenre === name ? 'active' : ''}>
+                {name}
+              </Button>
+            ))}
           </div>
         </div>
 
