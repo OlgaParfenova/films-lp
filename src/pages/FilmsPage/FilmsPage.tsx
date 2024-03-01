@@ -35,10 +35,15 @@ export const FilmsPage = () => {
     setSearchParams(newSearchParams);
   };
 
-  if (!data || (!data && isLoading)) return <Title>Loading ...</Title>;
+  if (!data || (!data && isLoading))
+    return (
+      <div className={styles['filmsPage__container']}>
+        <Title className={styles['filmsPage__title']}>Loading ...</Title>
+      </div>
+    );
 
   return (
-    <>
+    <div className={styles['filmsPage__container']}>
       <Title className={styles['filmsPage__title']}>Films Page</Title>
       <div className={styles['filmsPage__content-wrapper']}>
         <FilmFilters />
@@ -63,6 +68,6 @@ export const FilmsPage = () => {
         activeLinkClassName={styles['pagination-item-active']}
         pageLinkClassName={styles['pagination-item']}
       />
-    </>
+    </div>
   );
 };

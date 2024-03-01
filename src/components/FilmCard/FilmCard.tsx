@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { Paragraph } from '../Paragraph';
 import { FilmCardProps } from './FilmCard.props';
-import RatingIcon from '../../assets/icons/Star.svg';
 import styles from './FilmCard.module.css';
+import { Rating } from '../Rating';
 
 export const FilmCard: FC<FilmCardProps> = ({
   title,
@@ -30,11 +30,7 @@ export const FilmCard: FC<FilmCardProps> = ({
           {title}
         </Paragraph>
       )}
-
-      <div className={styles['card__rating']}>
-        <RatingIcon className={styles['card__rating-icon']} alt='Rating Icon' />
-        {parseFloat((Math.round(rating * 10) / 10).toFixed(1))}
-      </div>
+      <Rating rating={rating} className={styles['card__rating']} />
     </div>
   );
 };

@@ -1,3 +1,8 @@
+.filmsPage__container {
+  max-width: calc(1200px);
+  margin: 0 auto;
+}
+
 .filmsPage__title {
   margin-bottom: 40px;
 }

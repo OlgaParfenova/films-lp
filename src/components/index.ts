@@ -9,3 +9,4 @@ export * from './Select';
 export * from './FilmsList';
 export * from './FilmCardGrid';
 export * from './FilterButton';
+export * from './Rating';

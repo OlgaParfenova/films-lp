@@ -18,7 +18,7 @@ export const Navbar = () => {
           <NavbarButton to={routes.filmsPageURL} text='Films' />
           <NavbarButton to={routes.tvShowsPageURL} text='TV Shows' />
           <NavbarButton to={routes.peoplePageURL} text='People' />
-          <div>|</div>
+          <div className={styles['navbar__buttons-container__divider']}>|</div>
           <NavbarButton
             to={routes.loginPageURL}
             text='Login'

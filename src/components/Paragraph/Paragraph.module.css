@@ -53,3 +53,11 @@
 .paragraph-capitals {
   text-transform: uppercase;
 }
+
+.paragraph-400 {
+  font-weight: 400;
+}
+
+.paragraph-600 {
+  font-weight: 600;
+}

@@ -8,6 +8,7 @@ export const Paragraph: FC<ParagraphProps> = ({
   size,
   color,
   capitals,
+  weight,
   ...props
 }) => {
   const paragraphClassname = useMemo(() => {
@@ -15,12 +16,13 @@ export const Paragraph: FC<ParagraphProps> = ({
       styles['paragraph'],
       styles[`paragraph-${size}`],
       styles[`paragraph-${color}`],
+      styles[`paragraph-${weight}`],
       className,
       {
         [styles['paragraph-capitals']]: capitals === true,
       }
     );
-  }, [className, size, color, capitals]);
+  }, [className, size, color, capitals, weight]);
 
   return <p {...props} className={paragraphClassname} />;
 };

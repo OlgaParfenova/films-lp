@@ -60,25 +60,7 @@
 }
 
 .card__rating {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 6px;
+  top: 18px;
+  left: 20px;
   position: absolute;
-  height: 32px;
-  min-width: 65px;
-  margin-top: 18px;
-  margin-left: 20px;
-  background-color: rgba(0, 0, 0, 0.8);
-  border-radius: 50px;
-  color: var(--paper-color);
-  font-size: 16px;
-  font-weight: 700;
-  padding: 6px 11px;
-}
-
-.card__rating-icon {
-  height: 18px;
-  position: static;
-  fill: var(--paper-color);
 }
