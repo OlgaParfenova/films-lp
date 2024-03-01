@@ -8,11 +8,13 @@ export const FilmDetailsInfo: FC<FilmDetailsInfoProps> = ({
   rating,
   length,
   genres,
+  year,
   tagline,
   storyline,
   poster,
   ...props
 }) => {
+  const releaseYear = year.slice(0, 4);
   return (
     <div className={styles['film-details-info__container']} {...props}>
       <div className={styles['film-details-info']}>
@@ -37,28 +39,43 @@ export const FilmDetailsInfo: FC<FilmDetailsInfoProps> = ({
             );
           })}
         </div>
-        <div className={styles['film-details-info__tagline']}>
+        <div className={styles['film-details-info__item']}>
           <Paragraph capitals size='l' weight='600'>
-            Tagline
+            Year
           </Paragraph>
           <Paragraph
             size='m'
             color='gray'
             className={styles['film-details-info__descr']}>
-            {tagline}
+            {releaseYear}
           </Paragraph>
         </div>
-        <div className={styles['film-details-info__storyline']}>
-          <Paragraph capitals size='l' weight='600'>
-            Storyline
-          </Paragraph>
-          <Paragraph
-            size='m'
-            color='gray'
-            className={styles['film-details-info__descr']}>
-            {storyline}
-          </Paragraph>
-        </div>
+        {tagline ? (
+          <div className={styles['film-details-info__item']}>
+            <Paragraph capitals size='l' weight='600'>
+              Tagline
+            </Paragraph>
+            <Paragraph
+              size='m'
+              color='gray'
+              className={styles['film-details-info__descr']}>
+              {tagline}
+            </Paragraph>
+          </div>
+        ) : null}
+        {storyline ? (
+          <div className={styles['film-details-info__item']}>
+            <Paragraph capitals size='l' weight='600'>
+              Storyline
+            </Paragraph>
+            <Paragraph
+              size='m'
+              color='gray'
+              className={styles['film-details-info__descr']}>
+              {storyline}
+            </Paragraph>
+          </div>
+        ) : null}
       </div>
       <div
         className={styles['film-details-info__poster']}

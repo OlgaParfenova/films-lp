@@ -5,6 +5,7 @@ type FilmDetailsInfo = {
   rating: number;
   length: number;
   genres: Genre[];
+  year: string;
   tagline: string;
   storyline: string;
   poster: string;

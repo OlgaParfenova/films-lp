@@ -1,11 +1,20 @@
-.details-page__background::after {
-  content: '';
+.details-page__message {
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+.details-page__background {
+  position: relative;
+  height: 80vh;
+  width: 100%;
+}
+
+.details-page__background-image {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('https://image.tmdb.org/t/p/original/iQ5ztdjvteGeboxtmRdXEChJOHh.jpg');
   background-size: cover;
   background-position: center;
   opacity: 0.1;
@@ -14,9 +23,8 @@
   z-index: -1;
 }
 
-.details-page__background {
-  height: 80vh;
-  width: 100%;
+.details-page__content {
+  padding-top: 40px;
 }
 
 .details-page__reviews-container {

@@ -1,4 +1,4 @@
-import { API_KEY, defaultSeacrhParams } from '../../constants';
+import { API_KEY, defaultSearchParams } from '../../constants';
 import { GET_FILMS_URL } from '../endpoints';
 import { filmsApi } from '../filmsApi';
 import { GetFilmsArgs, GetFilmsResponse } from './types';
@@ -13,7 +13,7 @@ const getFilmsApi = filmsApi.injectEndpoints({
           Authorization: API_KEY,
         },
         params: {
-          ...defaultSeacrhParams,
+          ...defaultSearchParams,
           sortBy: 'popularity.desc',
           ...searchParams,
         },

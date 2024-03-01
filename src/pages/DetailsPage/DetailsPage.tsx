@@ -1,6 +1,8 @@
-import { Paragraph } from '../../components';
+import { useParams } from 'react-router-dom';
+import { Paragraph, Title } from '../../components';
 import { FilmDetailsInfo, Paper, Review } from '../../layouts';
 import styles from './DetailsPage.module.css';
+import { useGetFilmDetailsQuery } from '../../API/filmDetailsApi/getFilmDetailsEndpoint';
 
 const reviews = [
   {
@@ -12,48 +14,54 @@ const reviews = [
 ];
 
 export const DetailsPage = () => {
+  const { id } = useParams<string>();
+  const { data, isLoading } = useGetFilmDetailsQuery(Number(id));
+
+  if (isLoading)
+    return (
+      <Title className={styles['details-page__message']}>Loading ...</Title>
+    );
+  if (!data)
+    return (
+      <Title className={styles['details-page__message']}>Film not found</Title>
+    );
   return (
     <div className={styles['details-page__background']}>
-      <FilmDetailsInfo
-        filmTitle='Film Title'
-        rating={5.5}
-        length={120}
-        genres={[
-          {
-            id: 28,
-            name: 'Action',
-          },
-          {
-            id: 80,
-            name: 'Crime',
-          },
-          {
-            id: 18,
-            name: 'Drama',
-          },
-        ]}
-        tagline='He loved the American Dream. With a vengeance.'
-        storyline='After getting a green card in exchange for assassinating a Cuban government official, Tony Montana stakes a claim on the drug trade in Miami. Viciously murdering anyone who stands in his way, Tony eventually becomes the biggest drug lord in the state, controlling nearly all the cocaine that comes through Miami. But increased pressure from the police, wars with Colombian drug cartels and his own drug-fueled paranoia serve to fuel the flames of his eventual downfall.'
-        poster='/iQ5ztdjvteGeboxtmRdXEChJOHh.jpg'
+      <div
+        className={styles['details-page__background-image']}
+        style={{
+          backgroundImage: `url(https://image.tmdb.org/t/p/original${data.poster_path})`,
+        }}
       />
-
-      <div className={styles['details-page__reviews-container']}>
-        {reviews.length ? (
-          reviews.map((rev) => {
-            return (
-              <Review
-                key={rev.created_at}
-                reviewName={rev.author}
-                reviewDate={rev.created_at}
-                reviewText={rev.content}
-              />
-            );
-          })
-        ) : (
-          <Paper>
-            <Paragraph size='m'>No reviews available ...</Paragraph>
-          </Paper>
-        )}
+      <div className={styles['details-page__content']}>
+        <FilmDetailsInfo
+          filmTitle={data.title}
+          rating={data.vote_average}
+          length={data.runtime}
+          genres={data.genres}
+          tagline={data.tagline}
+          storyline={data.overview}
+          poster={data.poster_path}
+          year={data.release_date}
+        />
+        <div className={styles['details-page__reviews-container']}>
+          {reviews.length ? (
+            reviews.map((rev) => {
+              return (
+                <Review
+                  key={rev.created_at}
+                  reviewName={rev.author}
+                  reviewDate={rev.created_at}
+                  reviewText={rev.content}
+                />
+              );
+            })
+          ) : (
+            <Paper>
+              <Paragraph size='m'>No reviews available ...</Paragraph>
+            </Paper>
+          )}
+        </div>
       </div>
     </div>
   );

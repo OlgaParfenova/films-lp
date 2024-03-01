@@ -26,19 +26,15 @@
   margin-bottom: 40px;
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 20px;
 }
 
-.film-details-info__storyline {
+.film-details-info__item {
   margin-bottom: 40px;
 }
 
 .film-details-info__descr {
   margin-top: 10px;
-}
-
-.film-details-info__tagline {
-  margin-bottom: 40px;
 }
 
 .film-details-info__poster {
