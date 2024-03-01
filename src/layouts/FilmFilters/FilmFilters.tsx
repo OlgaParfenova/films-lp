@@ -3,7 +3,12 @@ import Checkbox, { CheckboxChangeEvent } from 'antd/es/checkbox';
 import { Slider } from 'antd';
 import classNames from 'classnames';
 import { useSearchParams } from 'react-router-dom';
-import { Button, DateInput, Paragraph, Select } from '../../components';
+import {
+  DateFieldFilter,
+  FilterButton,
+  Paragraph,
+  Select,
+} from '../../components';
 import { Paper } from '../Paper';
 import styles from './FilmFilters.module.css';
 import { FilmFiltersProps } from './FilmFilters.props';
@@ -12,22 +17,80 @@ import { useGetGenresQuery } from '../../API/genresApi/getGenresEndpoint';
 
 export const FilmFilters: FC<FilmFiltersProps> = ({ className }) => {
   const [isChecked, setIsChecked] = useState(true);
-  const [selectedGenre, setSelectedGenre] = useState<string | null>(null);
+  const [, setUserScoreValues] = useState([0, 10]);
+  const [, setMinUserVotes] = useState(0);
+  const [, setRuntimeValues] = useState([0, 400]);
   const [searchParams, setSearchParams] = useSearchParams();
   const { data: genresResponse } = useGetGenresQuery();
 
-  const handleCheckboxChange = (e: CheckboxChangeEvent) => {
-    setIsChecked(e.target.checked);
-  };
-  const handleGenreSelect = (genre: string) => {
-    setSelectedGenre(genre);
-    const newSearchParams = new URLSearchParams(searchParams);
-    newSearchParams.set('genre', genre);
-    newSearchParams.set('page', '1');
-    setSearchParams(newSearchParams);
+  const genres = genresResponse ? genresResponse.genres : [];
+  const searchParamsObj = Object.fromEntries(searchParams);
+
+  const handleAvailabilityChange = (checkedValues: string[]) => {
+    const monetizationTypes = checkedValues.join(',');
+    setSearchParams({
+      ...searchParamsObj,
+      with_watch_monetization_types: monetizationTypes,
+      page: '1',
+    });
   };
 
-  const genres = genresResponse ? genresResponse.genres : [];
+  const handleReleaseCheckboxChange = (event: CheckboxChangeEvent) => {
+    setIsChecked(event.target.checked);
+    if (event.target.checked) {
+      setSearchParams(() => ({
+        ...searchParamsObj,
+        with_release_type: '1,2,3,4,5,6',
+        page: '1',
+      }));
+    } else {
+      setSearchParams(() => ({
+        ...searchParamsObj,
+        with_release_type: '',
+        page: '1',
+      }));
+    }
+  };
+
+  const handleReleaseTypeChange = (checkedValues: string[]) => {
+    const releaseTypes = checkedValues
+      .filter((value) => value !== 'Search all releases?')
+      .join(',');
+    setSearchParams(() => ({
+      ...searchParamsObj,
+      with_release_type: releaseTypes,
+      page: '1',
+    }));
+  };
+
+  const handleUserScoreChange = (values: number[]) => {
+    setUserScoreValues(values);
+    setSearchParams(() => ({
+      ...searchParamsObj,
+      'vote_average.gte': String(values[0]),
+      'vote_average.lte': String(values[1]),
+      page: '1',
+    }));
+  };
+
+  const handleMinUserVotesChange = (value: number) => {
+    setMinUserVotes(value);
+    setSearchParams(() => ({
+      ...searchParamsObj,
+      'vote_count.gte': String(value),
+      page: '1',
+    }));
+  };
+
+  const handleRuntimeChange = (values: number[]) => {
+    setRuntimeValues(values);
+    setSearchParams(() => ({
+      ...searchParamsObj,
+      'with_runtime.gte': String(values[0]),
+      'with_runtime.lte': String(values[1]),
+      page: '1',
+    }));
+  };
 
   return (
     <div className={classNames(styles['filters'], className)}>
@@ -38,15 +101,22 @@ export const FilmFilters: FC<FilmFiltersProps> = ({ className }) => {
           </Paragraph>
           <Select
             options={[
-              'Popularity Descending',
-              'Popularity Ascending',
-              'Rating Descending',
-              'Rating Ascending',
-              'Release Date Descending',
-              'Release Date Ascending',
-              'Title (A-Z)',
-              'Title (Z-A)',
+              { label: 'Popularity Descending', value: 'popularity.desc' },
+              { label: 'Popularity Ascending', value: 'popularity.asc' },
+              { label: 'Rating Descending', value: 'vote_average.desc' },
+              { label: 'Rating Ascending', value: 'vote_average.asc' },
+              {
+                label: 'Release Date Descending',
+                value: 'primary_release_date.desc',
+              },
+              {
+                label: 'Release Date Ascending',
+                value: 'primary_release_date.asc',
+              },
+              { label: 'Title (A-Z)', value: 'title.asc' },
+              { label: 'Title (Z-A)', value: 'title.desc' },
             ]}
+            searchParam='sort_by'
           />
         </div>
 
@@ -58,15 +128,16 @@ export const FilmFilters: FC<FilmFiltersProps> = ({ className }) => {
             options={[
               {
                 label: 'Search all availabilities?',
-                value: 'Search all availabilities?',
+                value: 'flatrate,free,ads,rent,buy',
               },
-              { label: 'Stream', value: 'Stream' },
-              { label: 'Free', value: 'Free' },
-              { label: 'Ads', value: 'Ads' },
-              { label: 'Rent', value: 'Rent' },
-              { label: 'Buy', value: 'Buy' },
+              { label: 'Stream', value: 'flatrate' },
+              { label: 'Free', value: 'free' },
+              { label: 'Ads', value: 'ads' },
+              { label: 'Rent', value: 'rent' },
+              { label: 'Buy', value: 'buy' },
             ]}
             defaultValue={['Search all availabilities?']}
+            onChange={handleAvailabilityChange}
           />
         </div>
 
@@ -74,7 +145,7 @@ export const FilmFilters: FC<FilmFiltersProps> = ({ className }) => {
           <Paragraph size='m' className={styles['filters__element-title']}>
             Release Dates
           </Paragraph>
-          <Checkbox checked={isChecked} onChange={handleCheckboxChange}>
+          <Checkbox checked={isChecked} onChange={handleReleaseCheckboxChange}>
             Search all releases?
           </Checkbox>
           {!isChecked && (
@@ -82,24 +153,25 @@ export const FilmFilters: FC<FilmFiltersProps> = ({ className }) => {
               options={[
                 {
                   label: 'Theatrical (limited)',
-                  value: 'Theatrical (limited)',
+                  value: '1',
                 },
-                { label: 'Theatrical', value: 'Theatrical' },
-                { label: 'Premiere', value: 'Premiere' },
-                { label: 'Digital', value: 'Digital' },
-                { label: 'Physical', value: 'Physical' },
-                { label: 'TV', value: 'TV' },
+                { label: 'Theatrical', value: '2' },
+                { label: 'Premiere', value: '3' },
+                { label: 'Digital', value: '4' },
+                { label: 'Physical', value: '5' },
+                { label: 'TV', value: '6' },
               ]}
               defaultValue={['Search all releases?']}
+              onChange={handleReleaseTypeChange}
             />
           )}
           <div className={styles['filters__element-datepicker']}>
             <Paragraph>from</Paragraph>
-            <DateInput />
+            <DateFieldFilter searchParam='primary_release_date.gte' />
           </div>
           <div className={styles['filters__element-datepicker']}>
             <Paragraph>to</Paragraph>
-            <DateInput />
+            <DateFieldFilter searchParam='primary_release_date.lte' />
           </div>
         </div>
 
@@ -109,30 +181,16 @@ export const FilmFilters: FC<FilmFiltersProps> = ({ className }) => {
           </Paragraph>
           <div className={styles['filters__element-genres']}>
             {genres.map(({ id, name }) => (
-              <Button
+              <FilterButton
+                isGroup
                 key={id}
-                size='extra-small'
-                onClick={() => handleGenreSelect(name)}
-                className={selectedGenre === name ? 'active' : ''}>
+                searchParam='with_genres'
+                value={String(id)}>
                 {name}
-              </Button>
+              </FilterButton>
             ))}
           </div>
         </div>
-
-        <div className={styles['filters__element']}>
-          <Paragraph size='m' className={styles['filters__element-title']}>
-            Certification
-          </Paragraph>
-          <div className={styles['filters__element-certification']}>
-            <Button size='extra-small'>0</Button>
-            <Button size='extra-small'>6</Button>
-            <Button size='extra-small'>12</Button>
-            <Button size='extra-small'>16</Button>
-            <Button size='extra-small'>18</Button>
-          </div>
-        </div>
-
         <div className={styles['filters__element']}>
           <Paragraph size='m' className={styles['filters__element-title']}>
             User Score
@@ -155,6 +213,7 @@ export const FilmFilters: FC<FilmFiltersProps> = ({ className }) => {
               10: '10',
             }}
             defaultValue={[0, 10]}
+            onChange={handleUserScoreChange}
           />
         </div>
 
@@ -176,6 +235,7 @@ export const FilmFilters: FC<FilmFiltersProps> = ({ className }) => {
               500: '500',
             }}
             defaultValue={0}
+            onChange={handleMinUserVotesChange}
           />
         </div>
 
@@ -195,6 +255,7 @@ export const FilmFilters: FC<FilmFiltersProps> = ({ className }) => {
               360: '360',
             }}
             defaultValue={[0, 400]}
+            onChange={handleRuntimeChange}
           />
         </div>
       </Paper>

@@ -7,6 +7,7 @@ type Button = {
   textColor?: 'defaultText' | 'primaryText' | 'secondaryText';
   icon?: string;
   size?: 'extra-small' | 'small' | 'medium' | 'large';
+  active?: boolean;
 };
 
 export type ButtonProps = HTMLAttributes<HTMLButtonElement> & Button;

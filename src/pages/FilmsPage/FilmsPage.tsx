@@ -2,31 +2,9 @@ import ReactPaginate from 'react-paginate';
 import { useSearchParams } from 'react-router-dom';
 import { FilmCardGrid, FilmsList, Title } from '../../components';
 import { FilmFilters } from '../../layouts';
-import { useGetFilmsQuery } from '../../redux';
+import { useGetFilmsQuery } from '../../API/filmsApi/getFilmsEndpoint';
 import styles from './FilmsPage.module.css';
 import { useEffect, useState } from 'react';
-
-const genreIds: { [key: string]: number } = {
-  Action: 28,
-  Adventure: 12,
-  Animation: 16,
-  Comedy: 35,
-  Crime: 80,
-  Documentary: 99,
-  Drama: 18,
-  Family: 10751,
-  Fantasy: 14,
-  History: 36,
-  Horror: 27,
-  Music: 10402,
-  Mystery: 9648,
-  Romance: 10749,
-  'Science Fiction': 878,
-  'TV Movie': 10770,
-  Thriller: 53,
-  War: 10752,
-  Western: 37,
-};
 
 export const FilmsPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -34,17 +12,19 @@ export const FilmsPage = () => {
   const pageNumber = searchParams.has('page')
     ? +(searchParams.get('page') as string)
     : 1;
-  const genre = searchParams.has('genre') ? searchParams.get('genre') : null;
-  const genreId = genre ? genreIds[genre] : null;
-  const { data = [], isLoading } = useGetFilmsQuery({
-    pageNumber,
-    genreId,
+
+  const searchParamsObj = Object.fromEntries(searchParams);
+
+  const { data, isLoading } = useGetFilmsQuery({
+    searchParams: searchParamsObj,
   });
+
+  console.log('data', data);
 
   useEffect(() => {
     if (searchParams.has('page')) return;
     setResetPaginatorKey(String(Math.random()));
-  }, [searchParams, genre]);
+  }, [searchParams]);
 
   const handlePaginationChange = ({ selected }: { selected: number }) => {
     const newSearchParams = new URLSearchParams(searchParams);
@@ -55,7 +35,7 @@ export const FilmsPage = () => {
     setSearchParams(newSearchParams);
   };
 
-  if (isLoading) return <Title>Loading ...</Title>;
+  if (!data || (!data && isLoading)) return <Title>Loading ...</Title>;
 
   return (
     <>

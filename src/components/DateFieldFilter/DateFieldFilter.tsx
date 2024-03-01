@@ -1,19 +1,17 @@
 import { ChangeEvent, FC } from 'react';
-import { SelectProps } from './Select.props';
-import styles from './Select.module.css';
-import classNames from 'classnames';
 import { useSearchParams } from 'react-router-dom';
 
-export const Select: FC<SelectProps> = ({
-  options,
-  className,
+import { InputField } from '../InputField';
+import { DateFieldFilterProps } from './DateFieldFilter.props';
+
+export const DateFieldFilter: FC<DateFieldFilterProps> = ({
   searchParam,
   onChange,
   ...props
 }) => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const handleSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (typeof onChange === 'function') {
       onChange(e);
     }
@@ -24,22 +22,13 @@ export const Select: FC<SelectProps> = ({
     if (!isValue && existSearchParam) {
       delete searchParamsObj[searchParam];
     }
+    console.log('DATE', value);
     setSearchParams({
       ...searchParamsObj,
       ...(isValue ? { [searchParam]: value } : {}),
       page: '1',
     });
   };
-  return (
-    <select
-      className={classNames(styles['select'], className)}
-      onChange={handleSelectChange}
-      {...props}>
-      {options.map(({ label, value }) => (
-        <option key={`${value}-${label}`} value={value}>
-          {label}
-        </option>
-      ))}
-    </select>
-  );
+
+  return <InputField {...props} onChange={handleInputChange} type='date' />;
 };

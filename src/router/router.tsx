@@ -6,6 +6,7 @@ import {
   NotFoundPage,
   PeoplePage,
   RegisterPage,
+  DetailsPage,
 } from '../pages';
 import { routes } from './routes';
 import { Layout } from '../Layout';
@@ -34,6 +35,10 @@ export const router = createBrowserRouter([
       {
         path: routes.registerPageURL,
         element: <RegisterPage />,
+      },
+      {
+        path: routes.filmPageURL(':id'),
+        element: <DetailsPage />,
       },
       {
         path: '*',

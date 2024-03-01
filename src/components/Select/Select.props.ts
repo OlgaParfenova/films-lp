@@ -1,7 +1,13 @@
 import { HTMLAttributes } from 'react';
 
+type Option = {
+  label: string;
+  value: string;
+};
+
 type Select = {
-  options: string[];
+  options: Option[];
+  searchParam: string;
 };
 
 export type SelectProps = HTMLAttributes<HTMLSelectElement> & Select;

@@ -1,14 +1,14 @@
 import { FC } from 'react';
-import { TextInput } from '../TextInput';
+import { InputFieldProps } from '../InputField';
 import SearchIcon from '../../assets/icons/Search.svg';
-import { TextInputProps } from '../TextInput/TextInput.props';
+import { TextInputProps } from '../InputField/InputField.props';
 import styles from './SearchInput.module.css';
 
 export const SearchInput: FC<TextInputProps> = ({ placeholder, ...props }) => {
   return (
-    <TextInput
+    <InputField
       placeholder={placeholder}
       icon={<SearchIcon className={styles['search-input__icon']} />}
-      {...props}></TextInput>
+      {...props}></InputField>
   );
 };
