@@ -5,8 +5,7 @@
 .review__title {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  gap: 100px;
+  justify-content: space-between;
 }
 
 .review__descr {
