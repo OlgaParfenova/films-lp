@@ -6,7 +6,8 @@ import {
   NotFoundPage,
   PeoplePage,
   RegisterPage,
-  DetailsPage,
+  FilmDetailsPage,
+  TvShowDetailsPage,
 } from '../pages';
 import { routes } from './routes';
 import { Layout } from '../Layout';
@@ -38,7 +39,11 @@ export const router = createBrowserRouter([
       },
       {
         path: routes.filmPageURL(':id'),
-        element: <DetailsPage />,
+        element: <FilmDetailsPage />,
+      },
+      {
+        path: routes.tvShowPageURL(':id'),
+        element: <TvShowDetailsPage />,
       },
       {
         path: '*',

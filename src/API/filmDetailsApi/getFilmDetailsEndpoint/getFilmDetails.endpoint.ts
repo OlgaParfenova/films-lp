@@ -1,11 +1,11 @@
 import { API_KEY, defaultSearchParams } from '../../constants';
 import { GET_FILM_DETAILS_URL } from '../endpoints';
 import { filmDetailsApi } from '../filmDetailsApi';
-import { GetFilmDetailsResponse } from './types';
+import { GetFilmDetailsResponse, GetFilmDetailsArg } from './types';
 
 const getFilmDetailsApi = filmDetailsApi.injectEndpoints({
   endpoints: (build) => ({
-    getFilmDetails: build.query<GetFilmDetailsResponse, number>({
+    getFilmDetails: build.query<GetFilmDetailsResponse, GetFilmDetailsArg>({
       query: (id) => ({
         url: `${GET_FILM_DETAILS_URL}/${id}`,
         headers: {

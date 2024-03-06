@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import Checkbox, { CheckboxChangeEvent } from 'antd/es/checkbox';
+import Checkbox from 'antd/es/checkbox';
 import { Slider } from 'antd';
 import classNames from 'classnames';
 import { useSearchParams } from 'react-router-dom';
@@ -10,19 +10,19 @@ import {
   Select,
 } from '../../components';
 import { Paper } from '../Paper';
-import styles from './FilmFilters.module.css';
-import { FilmFiltersProps } from './FilmFilters.props';
-import { useGetFilmGenresQuery } from '../../API/filmGenresApi/getFilmGenresEndpoint';
+import { TvFiltersProps } from './TvFilters.props';
+import { useGetTvShowsGenresQuery } from '../../API/tvShowsGenresApi/getTvShowsGenresEndpoint';
+import styles from './TvFilters.module.css';
 
-export const FilmFilters: FC<FilmFiltersProps> = ({ className }) => {
+export const TvFilters: FC<TvFiltersProps> = ({ className }) => {
   const [isChecked, setIsChecked] = useState(true);
   const [, setUserScoreValues] = useState([0, 10]);
   const [, setMinUserVotes] = useState(0);
   const [, setRuntimeValues] = useState([0, 400]);
   const [searchParams, setSearchParams] = useSearchParams();
-  const { data: genresResponse } = useGetFilmGenresQuery();
+  const { data: tvGenresResponse } = useGetTvShowsGenresQuery();
 
-  const genres = genresResponse ? genresResponse.genres : [];
+  const tvGenres = tvGenresResponse ? tvGenresResponse.genres : [];
   const searchParamsObj = Object.fromEntries(searchParams);
 
   const handleAvailabilityChange = (checkedValues: string[]) => {
@@ -34,32 +34,8 @@ export const FilmFilters: FC<FilmFiltersProps> = ({ className }) => {
     });
   };
 
-  const handleReleaseCheckboxChange = (event: CheckboxChangeEvent) => {
-    setIsChecked(event.target.checked);
-    if (event.target.checked) {
-      setSearchParams(() => ({
-        ...searchParamsObj,
-        with_release_type: '1,2,3,4,5,6',
-        page: '1',
-      }));
-    } else {
-      setSearchParams(() => ({
-        ...searchParamsObj,
-        with_release_type: '',
-        page: '1',
-      }));
-    }
-  };
-
-  const handleReleaseTypeChange = (checkedValues: string[]) => {
-    const releaseTypes = checkedValues
-      .filter((value) => value !== 'Search all releases?')
-      .join(',');
-    setSearchParams(() => ({
-      ...searchParamsObj,
-      with_release_type: releaseTypes,
-      page: '1',
-    }));
+  const handleReleaseCheckboxChange = () => {
+    setIsChecked((isChecked) => !isChecked);
   };
 
   const handleUserScoreChange = (values: number[]) => {
@@ -105,15 +81,15 @@ export const FilmFilters: FC<FilmFiltersProps> = ({ className }) => {
               { label: 'Rating Descending', value: 'vote_average.desc' },
               { label: 'Rating Ascending', value: 'vote_average.asc' },
               {
-                label: 'Release Date Descending',
-                value: 'primary_release_date.desc',
+                label: 'First Air Date Descending',
+                value: 'first_air_date.desc',
               },
               {
-                label: 'Release Date Ascending',
-                value: 'primary_release_date.asc',
+                label: 'First Air Date Ascending',
+                value: 'first_air_date.asc',
               },
-              { label: 'Title (A-Z)', value: 'title.asc' },
-              { label: 'Title (Z-A)', value: 'title.desc' },
+              { label: 'Name (A-Z)', value: 'name.asc' },
+              { label: 'Name (Z-A)', value: 'name.desc' },
             ]}
             searchParam='sort_by'
           />
@@ -145,33 +121,36 @@ export const FilmFilters: FC<FilmFiltersProps> = ({ className }) => {
             Release Dates
           </Paragraph>
           <Checkbox checked={isChecked} onChange={handleReleaseCheckboxChange}>
-            Search all releases?
+            Search all episodes release?
           </Checkbox>
-          {!isChecked && (
-            <Checkbox.Group
-              options={[
-                {
-                  label: 'Theatrical (limited)',
-                  value: '1',
-                },
-                { label: 'Theatrical', value: '2' },
-                { label: 'Premiere', value: '3' },
-                { label: 'Digital', value: '4' },
-                { label: 'Physical', value: '5' },
-                { label: 'TV', value: '6' },
-              ]}
-              defaultValue={['Search all releases?']}
-              onChange={handleReleaseTypeChange}
-            />
+          {isChecked ? (
+            <>
+              <div className={styles['filters__element-datepicker']}>
+                <Paragraph>from</Paragraph>
+                <DateFieldFilter searchParam='air_date.gte' />
+              </div>
+              <div className={styles['filters__element-datepicker']}>
+                <Paragraph>to</Paragraph>
+                <DateFieldFilter searchParam='air_date.lte' />
+              </div>
+            </>
+          ) : (
+            <>
+              <Checkbox
+                checked={!isChecked}
+                onChange={handleReleaseCheckboxChange}>
+                Search first episode release?
+              </Checkbox>
+              <div className={styles['filters__element-datepicker']}>
+                <Paragraph>from</Paragraph>
+                <DateFieldFilter searchParam='first_air_date.gte' />
+              </div>
+              <div className={styles['filters__element-datepicker']}>
+                <Paragraph>to</Paragraph>
+                <DateFieldFilter searchParam='first_air_date.lte' />
+              </div>
+            </>
           )}
-          <div className={styles['filters__element-datepicker']}>
-            <Paragraph>from</Paragraph>
-            <DateFieldFilter searchParam='primary_release_date.gte' />
-          </div>
-          <div className={styles['filters__element-datepicker']}>
-            <Paragraph>to</Paragraph>
-            <DateFieldFilter searchParam='primary_release_date.lte' />
-          </div>
         </div>
 
         <div className={styles['filters__element']}>
@@ -179,7 +158,7 @@ export const FilmFilters: FC<FilmFiltersProps> = ({ className }) => {
             Genres
           </Paragraph>
           <div className={styles['filters__element-genres']}>
-            {genres.map(({ id, name }) => (
+            {tvGenres.map(({ id, name }) => (
               <FilterButton
                 isGroup
                 key={id}

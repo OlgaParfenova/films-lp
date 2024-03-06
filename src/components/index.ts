@@ -10,3 +10,5 @@ export * from './FilmsList';
 export * from './FilmCardGrid';
 export * from './FilterButton';
 export * from './Rating';
+export * from './TvShowsList';
+export * from './TvShowCard';

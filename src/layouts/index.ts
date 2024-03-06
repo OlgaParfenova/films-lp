@@ -5,3 +5,5 @@ export * from './FilmFilters';
 export * from './AntThemeProvider';
 export * from './FilmDetailsInfo';
 export * from './Review';
+export * from './TvFilters';
+export * from './TvShowDetailsInfo';

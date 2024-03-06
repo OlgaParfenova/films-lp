@@ -1,21 +1,33 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { filmsApi } from './filmsApi';
-import { genresApi } from './genresApi';
+import { filmGenresApi } from './filmGenresApi';
 import { filmDetailsApi } from './filmDetailsApi';
-import { reviewsApi } from './reviewsApi';
+import { filmReviewsApi } from './filmReviewsApi';
+import { tvShowsGenresApi } from './tvShowsGenresApi';
+import { tvShowsApi } from './tvShowsApi';
+import { tvShowDetailsApi } from './tvShowDetailsApi';
+import { tvShowReviewsApi } from './tvShowReviewsApi';
 
 export const store = configureStore({
   reducer: {
     [filmsApi.reducerPath]: filmsApi.reducer,
-    [genresApi.reducerPath]: genresApi.reducer,
+    [filmGenresApi.reducerPath]: filmGenresApi.reducer,
     [filmDetailsApi.reducerPath]: filmDetailsApi.reducer,
-    [reviewsApi.reducerPath]: reviewsApi.reducer,
+    [filmReviewsApi.reducerPath]: filmReviewsApi.reducer,
+    [tvShowsGenresApi.reducerPath]: tvShowsGenresApi.reducer,
+    [tvShowsApi.reducerPath]: tvShowsApi.reducer,
+    [tvShowDetailsApi.reducerPath]: tvShowDetailsApi.reducer,
+    [tvShowReviewsApi.reducerPath]: tvShowReviewsApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
       filmsApi.middleware,
-      genresApi.middleware,
+      filmGenresApi.middleware,
       filmDetailsApi.middleware,
-      reviewsApi.middleware
+      filmReviewsApi.middleware,
+      tvShowsGenresApi.middleware,
+      tvShowsApi.middleware,
+      tvShowDetailsApi.middleware,
+      tvShowReviewsApi.middleware
     ),
 });
