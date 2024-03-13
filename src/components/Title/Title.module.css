@@ -1,0 +1,35 @@
+.title {
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 38px;
+  color: var(--text-primary-color);
+}
+
+.title-small {
+  font-size: 38px;
+}
+
+.title-medium {
+  font-size: 40px;
+}
+
+.title-large {
+  font-size: 42px;
+}
+
+.title-default {
+  color: var(--paper-color);
+}
+
+.title-primary {
+  color: var(--text-primary-color);
+}
+
+.title-secondary {
+  color: var(--secondary-main-color);
+}
+
+.title-capitals {
+  text-transform: uppercase;
+}

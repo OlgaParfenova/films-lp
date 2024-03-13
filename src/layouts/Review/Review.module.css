@@ -1,0 +1,13 @@
+.review {
+  margin-bottom: 40px;
+}
+
+.review__title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.review__descr {
+  margin-top: 10px;
+}

@@ -1,0 +1,63 @@
+.paragraph {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  color: var(--text-primary-color);
+}
+
+.paragraph-xs {
+  font-size: 12px;
+}
+
+.paragraph-s {
+  font-size: 14px;
+}
+
+.paragraph-m {
+  font-size: 16px;
+}
+
+.paragraph-xm {
+  font-size: 18px;
+}
+
+.paragraph-l {
+  font-size: 20px;
+}
+
+.paragraph-xl {
+  font-size: 26px;
+}
+
+.paragraph-default {
+  color: var(--paper-color);
+}
+
+.paragraph-primary {
+  color: var(--text-primary-color);
+}
+
+.paragraph-secondary {
+  color: var(--secondary-main-color);
+}
+
+.paragraph-pink {
+  color: var(--primary-main-color);
+}
+
+.paragraph-gray {
+  color: var(--text-secondary-color);
+}
+
+.paragraph-capitals {
+  text-transform: uppercase;
+}
+
+.paragraph-400 {
+  font-weight: 400;
+}
+
+.paragraph-600 {
+  font-weight: 600;
+}
