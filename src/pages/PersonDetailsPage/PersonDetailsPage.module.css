@@ -1,0 +1,52 @@
+.person-details {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+}
+
+.person-details__container {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  margin-bottom: 40px;
+}
+
+.person-details__poster {
+  width: 350px;
+  height: 500px;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.person-details__message {
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+.person-details__info__name {
+  margin-bottom: 40px;
+}
+
+.person-details__info__item {
+  margin-bottom: 20px;
+}
+
+.person-details__work-item {
+  margin-bottom: 20px;
+}
+
+.person-details__work__list-element {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.list-element__title {
+  cursor: pointer;
+}
+
+.list-element__title:hover {
+  color: var(--secondary-main-color);
+}

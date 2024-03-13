@@ -7,3 +7,4 @@ export * from './NotFoundPage';
 export * from './FilmDetailsPage';
 export * from './FilmDetailsPage';
 export * from './TvShowDetailsPage';
+export * from './PersonDetailsPage';
