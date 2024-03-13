@@ -4,22 +4,25 @@ import { TvShowDetailsInfoProps } from './TvShowDetailsInfo.props';
 import styles from './TvShowDetailsInfo.module.css';
 
 export const TvShowDetailsInfo: FC<TvShowDetailsInfoProps> = ({
-  showName,
-  rating,
-  runtime,
-  genres,
-  first_air_date,
-  tagline,
-  storyline,
-  poster,
-  last_air_date,
-  number_of_episodes,
-  number_of_seasons,
-  created_by,
-  origin_country,
+  data,
   ...props
 }) => {
-  const EpisodeRuntime = Number(runtime[0]);
+  const {
+    name,
+    vote_average,
+    episode_run_time,
+    genres,
+    first_air_date,
+    tagline,
+    overview,
+    poster_path,
+    last_air_date,
+    number_of_episodes,
+    number_of_seasons,
+    created_by,
+    origin_country,
+  } = data;
+  const EpisodeRuntime = Number(episode_run_time[0]);
 
   const formatDate = (date: string) => {
     const newDate = new Date(date);
@@ -35,11 +38,11 @@ export const TvShowDetailsInfo: FC<TvShowDetailsInfoProps> = ({
     <div className={styles['tvshow-details-info__container']} {...props}>
       <div className={styles['tvshow-details-info']}>
         <div className={styles['tvshow-details-info__title']}>
-          <Title>{showName}</Title>
+          <Title>{name}</Title>
         </div>
         <div className={styles['tvshow-details-info__rating-length-container']}>
           <div className={styles['tvshow-details-info__rating']}>
-            <Rating rating={rating} />
+            <Rating rating={vote_average} />
           </div>
           <div className={styles['tvshow-details-info__length']}>
             {EpisodeRuntime} min
@@ -140,7 +143,7 @@ export const TvShowDetailsInfo: FC<TvShowDetailsInfoProps> = ({
             </Paragraph>
           </div>
         ) : null}
-        {storyline ? (
+        {overview ? (
           <div className={styles['tvshow-details-info__item']}>
             <Paragraph capitals size='l' weight='600'>
               Storyline
@@ -149,7 +152,7 @@ export const TvShowDetailsInfo: FC<TvShowDetailsInfoProps> = ({
               size='m'
               color='gray'
               className={styles['tvshow-details-info__descr']}>
-              {storyline}
+              {overview}
             </Paragraph>
           </div>
         ) : null}
@@ -157,7 +160,7 @@ export const TvShowDetailsInfo: FC<TvShowDetailsInfoProps> = ({
       <div
         className={styles['tvshow-details-info__poster']}
         style={{
-          backgroundImage: `url(https://image.tmdb.org/t/p/original${poster})`,
+          backgroundImage: `url(https://image.tmdb.org/t/p/original${poster_path})`,
         }}></div>
     </div>
   );

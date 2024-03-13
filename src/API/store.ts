@@ -7,6 +7,7 @@ import { tvShowsGenresApi } from './tvShowsGenresApi';
 import { tvShowsApi } from './tvShowsApi';
 import { tvShowDetailsApi } from './tvShowDetailsApi';
 import { tvShowReviewsApi } from './tvShowReviewsApi';
+import { peopleApi } from './peopleApi';
 
 export const store = configureStore({
   reducer: {
@@ -18,6 +19,7 @@ export const store = configureStore({
     [tvShowsApi.reducerPath]: tvShowsApi.reducer,
     [tvShowDetailsApi.reducerPath]: tvShowDetailsApi.reducer,
     [tvShowReviewsApi.reducerPath]: tvShowReviewsApi.reducer,
+    [peopleApi.reducerPath]: peopleApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
@@ -28,6 +30,7 @@ export const store = configureStore({
       tvShowsGenresApi.middleware,
       tvShowsApi.middleware,
       tvShowDetailsApi.middleware,
-      tvShowReviewsApi.middleware
+      tvShowReviewsApi.middleware,
+      peopleApi.middleware
     ),
 });
