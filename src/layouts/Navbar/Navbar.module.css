@@ -1,0 +1,38 @@
+.navbar {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  width: 100%;
+  max-width: calc(1200px);
+  top: 0;
+  left: 0;
+  position: static;
+  margin: 0 auto;
+  /* height: 140px; */
+  z-index: 99;
+}
+
+.navbar__content {
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar__logo {
+  cursor: pointer;
+  margin-right: 50px;
+}
+
+.navbar__buttons-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar__buttons-container__divider {
+  color: var(--text-field-color);
+}

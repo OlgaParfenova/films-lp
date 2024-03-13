@@ -1,0 +1,35 @@
+.filters {
+  width: 260px;
+}
+
+.filters__element {
+  margin-bottom: 24px;
+}
+
+.filters__element-title {
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.filters__element-datepicker {
+  display: grid;
+  grid-template-columns: auto 180px;
+  align-items: center;
+  margin-top: 7px;
+}
+
+.filters__element-genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.filters__element-certification {
+  display: flex;
+  justify-content: space-around;
+}
+
+.filters__element-button-active {
+  background-color: var(--primary-main-color);
+  color: var(--paper-color);
+}

@@ -1,5 +1,5 @@
 .paragraph {
-  font-size: 24px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -7,27 +7,27 @@
 }
 
 .paragraph-xs {
-  font-size: 24px;
+  font-size: 12px;
 }
 
 .paragraph-s {
-  font-size: 28px;
+  font-size: 14px;
 }
 
 .paragraph-m {
-  font-size: 32px;
+  font-size: 16px;
 }
 
 .paragraph-xm {
-  font-size: 38px;
+  font-size: 18px;
 }
 
 .paragraph-l {
-  font-size: 42px;
+  font-size: 20px;
 }
 
 .paragraph-xl {
-  font-size: 52px;
+  font-size: 26px;
 }
 
 .paragraph-default {
@@ -52,4 +52,12 @@
 
 .paragraph-capitals {
   text-transform: uppercase;
+}
+
+.paragraph-400 {
+  font-weight: 400;
+}
+
+.paragraph-600 {
+  font-weight: 600;
 }

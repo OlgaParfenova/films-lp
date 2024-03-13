@@ -1,0 +1,63 @@
+.tvshow-details-info__container {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+}
+
+.tvshow-details-info__title {
+  margin-bottom: 40px;
+}
+
+.tvshow-details-info__rating-length-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.tvshow-details-info__length {
+  font-weight: 700;
+}
+
+.tvshow-details-info__genres {
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.tvshow-details-info__line {
+  margin-top: 18px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.tvshow-details-info__line__paragraph {
+  margin-top: 0;
+  line-height: 0.1;
+}
+
+.tvshow-details-info__item {
+  margin-bottom: 40px;
+}
+
+.tvshow-details-info__descr {
+  margin-top: 10px;
+}
+
+.tvshow-details-info__poster {
+  background-image: url('https://image.tmdb.org/t/p/original/iQ5ztdjvteGeboxtmRdXEChJOHh.jpg');
+  width: 350px;
+  height: 500px;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  flex-grow: 0;
+  flex-shrink: 0;
+}

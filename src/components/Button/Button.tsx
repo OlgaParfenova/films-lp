@@ -11,6 +11,7 @@ export const Button: FC<ButtonProps> = ({
   icon,
   size,
   className,
+  active,
   children,
   ...props
 }) => {
@@ -25,9 +26,10 @@ export const Button: FC<ButtonProps> = ({
         [styles[`button-${border}`]]: border,
         [styles['button-capitalised']]: capitalised,
         [styles['button-icon']]: icon,
+        [styles['active']]: active,
       }
     );
-  }, [border, fill, capitalised, textColor, icon, size, className]);
+  }, [fill, textColor, size, className, border, capitalised, icon, active]);
   return (
     <button {...props} className={buttonClassname}>
       {icon && <img src={icon} className={styles['button-icon']} />}
