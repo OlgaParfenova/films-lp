@@ -16,7 +16,9 @@ export const TvShowDetailsPage = () => {
     );
   if (!tvShowData)
     return (
-      <Title className={styles['details-page__message']}>Film not found</Title>
+      <Title className={styles['details-page__message']}>
+        TV Show not found
+      </Title>
     );
   return (
     <div className={styles['details-page__background']}>
@@ -27,21 +29,7 @@ export const TvShowDetailsPage = () => {
         }}
       />
       <div className={styles['details-page__content']}>
-        <TvShowDetailsInfo
-          showName={tvShowData.name}
-          rating={tvShowData.vote_average}
-          runtime={tvShowData.episode_run_time}
-          genres={tvShowData.genres}
-          first_air_date={tvShowData.first_air_date}
-          tagline={tvShowData.tagline}
-          storyline={tvShowData.overview}
-          poster={tvShowData.poster_path}
-          last_air_date={tvShowData.last_air_date}
-          number_of_episodes={tvShowData.number_of_episodes}
-          number_of_seasons={tvShowData.number_of_seasons}
-          created_by={tvShowData.created_by}
-          origin_country={tvShowData.origin_country}
-        />
+        <TvShowDetailsInfo data={tvShowData} />
         <div className={styles['details-page__reviews-container']}>
           {reviewsData?.results.length
             ? reviewsData.results.map((rev) => {

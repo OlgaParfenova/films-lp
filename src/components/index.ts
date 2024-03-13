@@ -12,3 +12,6 @@ export * from './FilterButton';
 export * from './Rating';
 export * from './TvShowsList';
 export * from './TvShowCard';
+export * from './PersonCard';
+export * from './PersonCardGrid';
+export * from './PeopleList';
