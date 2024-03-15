@@ -5,3 +5,7 @@
   left: 6px;
   fill: var(--text-secondary-color);
 }
+
+.search-input input {
+  padding-left: 30px;
+}

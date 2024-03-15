@@ -1,6 +1,12 @@
+.person-details__bg {
+  background: url('../../../public/img/recTwo.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .person-details {
   max-width: 1200px;
-  margin: 0 auto 40px;
+  margin: 0 auto 50px;
 }
 
 .person-details__message {

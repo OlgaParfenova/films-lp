@@ -10,7 +10,7 @@ export const Navbar = () => {
     <div className={styles['navbar']}>
       <div className={styles['navbar__content']}>
         <div className={styles['navbar__logo']}>
-          <NavLink to={routes.filmsPageURL}>
+          <NavLink to={routes.mainPageURL}>
             <Logo />
           </NavLink>
         </div>

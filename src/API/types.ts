@@ -16,3 +16,16 @@ export type ReviewsWithPaginationResponse<T> = {
   total_pages: number;
   total_results: number;
 };
+
+export type WithDatePaginationResponse<T> = {
+  dates: Dates;
+  page: number;
+  total_pages: number;
+  total_results: number;
+  results: T;
+};
+
+export type Dates = {
+  maximum: string;
+  minimum: string;
+};
