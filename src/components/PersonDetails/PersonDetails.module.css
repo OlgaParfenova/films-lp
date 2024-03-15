@@ -1,0 +1,24 @@
+.person-details__container {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  margin-bottom: 40px;
+}
+
+.person-details__poster {
+  width: 350px;
+  height: 500px;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.person-details__info__name {
+  margin-bottom: 40px;
+}
+
+.person-details__info__item {
+  margin-bottom: 20px;
+}
