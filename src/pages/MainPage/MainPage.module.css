@@ -1,0 +1,40 @@
+.mainPage__background {
+  background-image: url('../../../public/img/mpBg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 150vh;
+}
+
+.mainPage__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.mainPage__text {
+  padding-top: 50px;
+  margin: 0 auto;
+}
+
+.mainPage__search-block {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  padding-top: 50px;
+}
+
+.mainPage__search-block__button {
+  padding: 10px 34px;
+}
+
+.mainPage__search-block__button:hover {
+  padding: 10px 34px;
+}
+
+.mainPage__now-playing-block {
+  padding-top: 50px;
+  margin-bottom: 50px;
+}
+
+.mainPage__now-playing-block__title {
+  margin-bottom: 50px;
+}

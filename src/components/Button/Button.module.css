@@ -83,6 +83,7 @@
   background-color: var(--secondary-main-color);
   color: var(--paper-color);
   border: none;
+  transition: color 0.3s ease;
 }
 
 .button-bgSecondaryFill {
@@ -95,8 +96,16 @@
 .button-secondaryFill {
   padding: 10px 14px;
   background-color: var(--secondary-main-color);
+  border: 2px solid var(--secondary-main-color);
   color: var(--paper-color);
-  border: none;
+}
+
+.button-secondaryFill:hover {
+  padding: 10px 14px;
+  border: 2px solid var(--secondary-main-color);
+  background-color: transparent;
+  color: var(--secondary-main-color);
+  transition: color 0.3s ease;
 }
 
 .button-capitalised {

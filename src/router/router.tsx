@@ -9,6 +9,7 @@ import {
   FilmDetailsPage,
   TvShowDetailsPage,
   PersonDetailsPage,
+  MainPage,
 } from '../pages';
 import { routes } from './routes';
 import { Layout } from '../Layout';
@@ -49,6 +50,10 @@ export const router = createBrowserRouter([
       {
         path: routes.personPageURL(':id'),
         element: <PersonDetailsPage />,
+      },
+      {
+        path: '',
+        element: <MainPage />,
       },
       {
         path: '*',

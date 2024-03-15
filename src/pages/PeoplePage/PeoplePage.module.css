@@ -1,6 +1,12 @@
+.peoplePage__bg {
+  background: url('../../../public/img/recOne.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .peoplePage__container {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 40px auto;
 }
 
 .peoplePage__title {
@@ -13,7 +19,6 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
-  margin-bottom: 50px;
 }
 
 .pagination__item {

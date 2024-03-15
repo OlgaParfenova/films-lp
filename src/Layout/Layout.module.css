@@ -1,7 +1,5 @@
 .outlet {
   position: relative;
-  /* max-width: calc(1200px); */
   min-height: 100%;
   margin: 0 auto;
-  padding-top: 40px;
 }

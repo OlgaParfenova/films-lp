@@ -35,18 +35,20 @@ export const PersonDetailsPage = () => {
     ) || [];
 
   return (
-    <div className={styles['person-details']}>
-      <PersonDetails personData={personData} />
-      {cast ? <PersonWork title='Acting' works={cast} /> : null}
-      {directingWorks.length ? (
-        <PersonWork title='Directing' works={directingWorks} />
-      ) : null}
-      {producingWorks.length ? (
-        <PersonWork title='Producing' works={producingWorks} />
-      ) : null}
-      {writingWorks.length ? (
-        <PersonWork title='Writing' works={writingWorks} />
-      ) : null}
+    <div className={styles['person-details__bg']}>
+      <div className={styles['person-details']}>
+        <PersonDetails personData={personData} />
+        {cast ? <PersonWork title='Acting' works={cast} /> : null}
+        {directingWorks.length ? (
+          <PersonWork title='Directing' works={directingWorks} />
+        ) : null}
+        {producingWorks.length ? (
+          <PersonWork title='Producing' works={producingWorks} />
+        ) : null}
+        {writingWorks.length ? (
+          <PersonWork title='Writing' works={writingWorks} />
+        ) : null}
+      </div>
     </div>
   );
 };

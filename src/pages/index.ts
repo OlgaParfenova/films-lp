@@ -8,3 +8,4 @@ export * from './FilmDetailsPage';
 export * from './FilmDetailsPage';
 export * from './TvShowDetailsPage';
 export * from './PersonDetailsPage';
+export * from './MainPage';

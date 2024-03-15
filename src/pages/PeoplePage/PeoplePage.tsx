@@ -51,30 +51,32 @@ export const PeoplePage = () => {
     );
 
   return (
-    <div className={styles['peoplePage__container']}>
-      <Title className={styles['peoplePage__title']}>People Page</Title>
-      <div className={styles['peoplePage__content']}>
-        <PersonCardGrid>
-          <PeopleList people={peopleData.results} />
-        </PersonCardGrid>
+    <div className={styles['peoplePage__bg']}>
+      <div className={styles['peoplePage__container']}>
+        <Title className={styles['peoplePage__title']}>People Page</Title>
+        <div className={styles['peoplePage__content']}>
+          <PersonCardGrid>
+            <PeopleList people={peopleData.results} />
+          </PersonCardGrid>
+        </div>
+        <ReactPaginate
+          key={resetPaginatorKey}
+          previousLabel={'Previous'}
+          nextLabel={'Next'}
+          breakLabel={'...'}
+          pageCount={peopleData?.total_pages || 1}
+          marginPagesDisplayed={1}
+          pageRangeDisplayed={3}
+          initialPage={pageNumber - 1}
+          onPageChange={handlePaginationChange}
+          containerClassName={styles['pagination__container']}
+          breakClassName={styles['pagination__item']}
+          previousClassName={styles['pagination__item']}
+          nextClassName={styles['pagination__item']}
+          activeLinkClassName={styles['pagination__item-active']}
+          pageLinkClassName={styles['pagination__item']}
+        />
       </div>
-      <ReactPaginate
-        key={resetPaginatorKey}
-        previousLabel={'Previous'}
-        nextLabel={'Next'}
-        breakLabel={'...'}
-        pageCount={peopleData?.total_pages || 1}
-        marginPagesDisplayed={1}
-        pageRangeDisplayed={3}
-        initialPage={pageNumber - 1}
-        onPageChange={handlePaginationChange}
-        containerClassName={styles['pagination__container']}
-        breakClassName={styles['pagination__item']}
-        previousClassName={styles['pagination__item']}
-        nextClassName={styles['pagination__item']}
-        activeLinkClassName={styles['pagination__item-active']}
-        pageLinkClassName={styles['pagination__item']}
-      />
     </div>
   );
 };

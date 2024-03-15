@@ -103,31 +103,33 @@ export const FilmsPage = () => {
     );
 
   return (
-    <div className={styles['filmsPage__container']}>
-      <Title className={styles['filmsPage__title']}>Films Page</Title>
-      <div className={styles['filmsPage__content-wrapper']}>
-        <FilmFilters />
-        <FilmCardGrid>
-          <FilmsList films={data.results} />
-        </FilmCardGrid>
+    <div className={styles['filmsPage__bg-primary']}>
+      <div className={styles['filmsPage__container']}>
+        <Title className={styles['filmsPage__title']}>Films Page</Title>
+        <div className={styles['filmsPage__content-wrapper']}>
+          <FilmFilters />
+          <FilmCardGrid>
+            <FilmsList films={data.results} />
+          </FilmCardGrid>
+        </div>
+        <ReactPaginate
+          key={resetPaginatorKey}
+          previousLabel={'Previous'}
+          nextLabel={'Next'}
+          breakLabel={'...'}
+          pageCount={data.total_pages}
+          marginPagesDisplayed={1}
+          pageRangeDisplayed={3}
+          initialPage={pageNumber - 1}
+          onPageChange={handlePaginationChange}
+          containerClassName={styles['pagination-container']}
+          breakClassName={styles['pagination-item']}
+          previousClassName={styles['pagination-item']}
+          nextClassName={styles['pagination-item']}
+          activeLinkClassName={styles['pagination-item-active']}
+          pageLinkClassName={styles['pagination-item']}
+        />
       </div>
-      <ReactPaginate
-        key={resetPaginatorKey}
-        previousLabel={'Previous'}
-        nextLabel={'Next'}
-        breakLabel={'...'}
-        pageCount={data.total_pages}
-        marginPagesDisplayed={1}
-        pageRangeDisplayed={3}
-        initialPage={pageNumber - 1}
-        onPageChange={handlePaginationChange}
-        containerClassName={styles['pagination-container']}
-        breakClassName={styles['pagination-item']}
-        previousClassName={styles['pagination-item']}
-        nextClassName={styles['pagination-item']}
-        activeLinkClassName={styles['pagination-item-active']}
-        pageLinkClassName={styles['pagination-item']}
-      />
     </div>
   );
 };
