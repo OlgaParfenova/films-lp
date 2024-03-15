@@ -20,6 +20,7 @@ export const TvShowDetailsPage = () => {
         TV Show not found
       </Title>
     );
+
   return (
     <div className={styles['details-page__background']}>
       <div
@@ -30,7 +31,7 @@ export const TvShowDetailsPage = () => {
       />
       <div className={styles['details-page__content']}>
         <TvShowDetailsInfo data={tvShowData} />
-        <div className={styles['details-page__reviews-container']}>
+        <div className={styles['details-page__revi  ews-container']}>
           {reviewsData?.results.length
             ? reviewsData.results.map((rev) => {
                 return (

@@ -1,9 +1,9 @@
 import { FC } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Paragraph } from '../Paragraph';
 import { PersonCardProps } from './PersonCard.props';
+import { routes } from '../../router/routes';
 import styles from './PersonCard.module.css';
-// import { useNavigate } from 'react-router-dom';
-// import { routes } from '../../router/routes';
 
 export const PersonCard: FC<PersonCardProps> = ({
   id,
@@ -12,11 +12,10 @@ export const PersonCard: FC<PersonCardProps> = ({
   profile_path,
   ...props
 }) => {
-  // const navigate = useNavigate();
-  // const handleFilmDetailsClick = () => {
-  //   navigate(routes.filmPageURL(id));
-  // };
-  console.log('id', id);
+  const navigate = useNavigate();
+  const handlePersonDetailsClick = () => {
+    navigate(routes.personPageURL(id));
+  };
 
   const titles = known_for.map((item) => item.title).filter(Boolean);
   const titlesString = titles.join(', ');
@@ -25,7 +24,9 @@ export const PersonCard: FC<PersonCardProps> = ({
 
   return (
     <div className={styles['card']} {...props}>
-      <div className={styles['card__poster']}>
+      <div
+        className={styles['card__poster']}
+        onClick={handlePersonDetailsClick}>
         <img src={profile_path} alt='poster' />
         <div className={styles['card__poster-overlay']}>
           <Paragraph size='xm' color='default'>
@@ -38,7 +39,8 @@ export const PersonCard: FC<PersonCardProps> = ({
           size='xm'
           color='primary'
           weight='600'
-          className={styles['card__name']}>
+          className={styles['card__name']}
+          onClick={handlePersonDetailsClick}>
           {name}
         </Paragraph>
       ) : (
@@ -46,7 +48,8 @@ export const PersonCard: FC<PersonCardProps> = ({
           size='xs'
           color='primary'
           weight='600'
-          className={styles['card__name']}>
+          className={styles['card__name']}
+          onClick={handlePersonDetailsClick}>
           {name}
         </Paragraph>
       )}

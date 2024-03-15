@@ -1,0 +1,17 @@
+.person-details__work-item {
+  margin-bottom: 20px;
+}
+
+.person-details__work__list-element {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.list-element__title {
+  cursor: pointer;
+}
+
+.list-element__title:hover {
+  color: var(--secondary-main-color);
+}
