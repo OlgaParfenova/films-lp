@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import { Spin } from 'antd';
 import { Title } from '../../components';
 import { TvShowDetailsInfo, Review } from '../../layouts';
 import styles from './TvShowDetailsPage.module.css';
@@ -12,7 +13,9 @@ export const TvShowDetailsPage = () => {
 
   if (isLoading)
     return (
-      <Title className={styles['details-page__message']}>Loading ...</Title>
+      <div className={styles['details-page__message']}>
+        <Spin size='large' />
+      </div>
     );
   if (!tvShowData)
     return (

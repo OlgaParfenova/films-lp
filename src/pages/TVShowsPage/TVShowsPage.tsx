@@ -1,10 +1,11 @@
 import ReactPaginate from 'react-paginate';
+import { useSearchParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Spin } from 'antd';
 import { FilmCardGrid, TVShowsList, Title } from '../../components';
 import { TvFilters } from '../../layouts';
-import styles from './TVShowsPage.module.css';
-import { useSearchParams } from 'react-router-dom';
 import { useGetTvShowsQuery } from '../../API/tvShowsApi/getTvShowsEndpoint';
-import { useEffect, useState } from 'react';
+import styles from './TVShowsPage.module.css';
 
 export const TVShowsPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -103,7 +104,7 @@ export const TVShowsPage = () => {
   if (!data || (!data && isLoading))
     return (
       <div className={styles['tvShowsPage__container']}>
-        <Title className={styles['tvShowsPage__title']}>Loading ...</Title>
+        <Spin size='large' />
       </div>
     );
 

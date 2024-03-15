@@ -4,6 +4,7 @@ import ReactPaginate from 'react-paginate';
 import { PeopleList, PersonCardGrid, Title } from '../../components';
 import { useGetPeopleQuery } from '../../API/peopleApi/getPeopleEndpoint';
 import styles from './PeoplePage.module.css';
+import { Spin } from 'antd';
 
 export const PeoplePage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -38,7 +39,7 @@ export const PeoplePage = () => {
   if (!peopleData || (!peopleData && isLoading))
     return (
       <div className={styles['peoplePage__container']}>
-        <Title className={styles['peoplePage__title']}>Loading ...</Title>
+        <Spin size='large' />
       </div>
     );
 

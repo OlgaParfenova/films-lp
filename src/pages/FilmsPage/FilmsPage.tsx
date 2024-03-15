@@ -1,10 +1,11 @@
 import ReactPaginate from 'react-paginate';
 import { useSearchParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Spin } from 'antd';
 import { FilmCardGrid, FilmsList, Title } from '../../components';
 import { FilmFilters } from '../../layouts';
 import { useGetFilmsQuery } from '../../API/filmsApi/getFilmsEndpoint';
 import styles from './FilmsPage.module.css';
-import { useEffect, useState } from 'react';
 
 export const FilmsPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -97,7 +98,7 @@ export const FilmsPage = () => {
   if (!data || (!data && isLoading))
     return (
       <div className={styles['filmsPage__container']}>
-        <Title className={styles['filmsPage__title']}>Loading ...</Title>
+        <Spin size='large' />
       </div>
     );
 

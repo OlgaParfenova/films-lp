@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import { Spin } from 'antd';
 import { PersonDetails, PersonWork, Title } from '../../components';
 import { useGetPeopleDetailsQuery } from '../../API/peopleDetailsApi/getPeopleDetailsEndpoint';
 import { useGetPeopleCreditsQuery } from '../../API/peopleCreditsApi/getPeopleCreditsEndpoint';
@@ -11,7 +12,9 @@ export const PersonDetailsPage = () => {
 
   if (isLoading)
     return (
-      <Title className={styles['person-details__message']}>Loading ...</Title>
+      <div className={styles['person-details__message']}>
+        <Spin size='large' />
+      </div>
     );
   if (!personData)
     return (

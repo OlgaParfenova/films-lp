@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import { Spin } from 'antd';
 import { Title } from '../../components';
 import { FilmDetailsInfo, Review } from '../../layouts';
 import { useGetFilmDetailsQuery } from '../../API/filmDetailsApi/getFilmDetailsEndpoint';
@@ -12,7 +13,9 @@ export const FilmDetailsPage = () => {
 
   if (isLoading)
     return (
-      <Title className={styles['details-page__message']}>Loading ...</Title>
+      <div className={styles['details-page__message']}>
+        <Spin size='large' />
+      </div>
     );
   if (!filmData)
     return (
