@@ -7,3 +7,4 @@ export * from './FilmDetailsInfo';
 export * from './Review';
 export * from './TvFilters';
 export * from './TvShowDetailsInfo';
+export * from './SearchResults';

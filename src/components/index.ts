@@ -17,3 +17,4 @@ export * from './PersonCardGrid';
 export * from './PeopleList';
 export * from './PersonDetails';
 export * from './PersonWork';
+export * from './SearchResultsButton';
