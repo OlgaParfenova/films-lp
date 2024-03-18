@@ -1,5 +1,5 @@
 .person-details__bg {
-  background: url('../../../public/img/recTwo.png');
+  background: url('/img/recTwo.png');
   background-size: cover;
   background-repeat: no-repeat;
 }

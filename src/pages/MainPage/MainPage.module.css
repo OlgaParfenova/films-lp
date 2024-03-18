@@ -1,5 +1,5 @@
 .mainPage__background {
-  background-image: url('../../../public/img/mpBg.png');
+  background-image: url('/img/mpBg.png');
   background-size: cover;
   background-repeat: no-repeat;
   height: 150vh;

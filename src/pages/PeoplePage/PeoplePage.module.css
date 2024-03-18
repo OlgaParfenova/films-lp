@@ -1,5 +1,5 @@
 .peoplePage__bg {
-  background: url('../../../public/img/recOne.png');
+  background: url('/img/recOne.png');
   background-size: cover;
   background-repeat: no-repeat;
 }
