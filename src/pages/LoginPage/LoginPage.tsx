@@ -1,11 +1,10 @@
 import { Paragraph } from '../../components';
-import { SearchResults } from '../../layouts';
+import styles from './LoginPage.module.css';
 
 export const LoginPage = () => {
   return (
-    <>
+    <div className={styles['container']}>
       <Paragraph>Login Page</Paragraph>
-      <SearchResults />
-    </>
+    </div>
   );
 };
