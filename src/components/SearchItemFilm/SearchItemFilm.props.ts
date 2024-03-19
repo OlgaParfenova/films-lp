@@ -1,10 +1,5 @@
 import { HTMLAttributes } from 'react';
+import { SearchResult } from '../../API/searchApi/getSearchEndpoint';
 
-type SearchItemFilm = {
-  title: string;
-  date: string;
-  overview: string;
-  picture: string;
-};
-
-export type SearchItemFilmProps = HTMLAttributes<HTMLDivElement> & SearchItemFilm;
+export type SearchItemFilmProps = Omit<HTMLAttributes<HTMLDivElement>, 'id'> &
+  SearchResult;

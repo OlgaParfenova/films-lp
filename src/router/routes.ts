@@ -5,6 +5,7 @@ export const routes = {
   peoplePageURL: '/people',
   loginPageURL: '/login',
   registerPageURL: '/register',
+  searchPageURL: '/search',
   notFoundPageURL: '/404',
   filmPageURL: (id: string | number) => `/film/${id}`,
   tvShowPageURL: (id: string | number) => `/tvshow/${id}`,

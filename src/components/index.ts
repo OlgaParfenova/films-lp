@@ -20,3 +20,5 @@ export * from './PersonWork';
 export * from './SearchResultsButton';
 export * from './SearchItemFilm';
 export * from './SearchItemPerson';
+export * from './SearchFilmList';
+export * from './SearchPersonList';

@@ -8,10 +8,14 @@ export const SearchResultsButton: FC<SearchResultsButtonProps> = ({
   title,
   number,
   className,
+  isFocused,
   ...props
 }) => {
+  const buttonClass = classNames(styles['button'], className, {
+    [styles['button-focused']]: isFocused,
+  });
   return (
-    <button className={classNames(styles['button'], className)} {...props}>
+    <button className={buttonClass} {...props}>
       <div className={styles['button-wrap']}>
         <Paragraph size='s' weight='600'>
           {title}

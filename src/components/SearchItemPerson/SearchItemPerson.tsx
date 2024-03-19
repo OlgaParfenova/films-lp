@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import classNames from 'classnames';
+import { useNavigate } from 'react-router-dom';
 import { Paragraph } from '../Paragraph';
 import { SearchItemPersonProps } from './SearchItemPerson.props';
 import styles from './SearchItemPerson.module.css';
@@ -9,19 +10,28 @@ export const SearchItemPerson: FC<SearchItemPersonProps> = ({
   profile_path,
   known_for_department,
   known_for,
+  id,
   className,
   ...props
 }) => {
+  const navigate = useNavigate();
+  if (!name || !known_for_department || !known_for) return;
+
+  const handlePersonClick = () => {
+    navigate(`/person/${id}`);
+  };
+
   return (
     <div
       className={classNames(styles['search-item-person__wrap'], className)}
       {...props}>
-      {profile_path.length ? (
+      {profile_path && profile_path.length ? (
         <div
           className={styles['search-item-person__picture']}
           style={{
             backgroundImage: `url(https://image.tmdb.org/t/p/original${profile_path})`,
-          }}></div>
+          }}
+          onClick={handlePersonClick}></div>
       ) : (
         <div
           className={styles['search-item-person__picture']}
@@ -30,21 +40,27 @@ export const SearchItemPerson: FC<SearchItemPersonProps> = ({
           }}></div>
       )}
       <div className={styles['search-item-person__info']}>
-        <Paragraph className={styles['info__name']} size='m' weight='600'>
+        <Paragraph
+          className={styles['info__name']}
+          size='m'
+          weight='600'
+          onClick={handlePersonClick}>
           {name}
         </Paragraph>
         <Paragraph className={styles['info__work']} size='s' color='gray'>
           {known_for_department}
         </Paragraph>
-        {known_for.map((work, index) => {
-          const prefix = index > 0 ? ', ' : '';
-          return (
-            <Paragraph className={styles['info__work-list']} size='s'>
-              {prefix}
-              {work.title}
-            </Paragraph>
-          );
-        })}
+        <div className={styles['info__work-list']}>
+          {known_for.map((work, index) => {
+            const prefix = index > 0 ? ', ' : '';
+            return (
+              <Paragraph size='s'>
+                {prefix}
+                {work.title?.trim()}
+              </Paragraph>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
