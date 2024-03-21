@@ -1,5 +1,5 @@
-import { SearchResult } from '../../API/searchApi/getSearchEndpoint';
+import { SearchFilmsResult } from '../../API/searchFilmsApi/getSearchFilmsEndpoint/models';
 
 export type SearchFilmListProps = {
-  films: SearchResult[];
+  films: SearchFilmsResult[];
 };

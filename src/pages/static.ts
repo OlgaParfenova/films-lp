@@ -1,1 +1,1 @@
-export type FocusedButtonUnion = '' | 'films' | 'people' | 'tvShow';
+export type FocusedButtonUnion = '' | 'films' | 'people' | 'tvShows';

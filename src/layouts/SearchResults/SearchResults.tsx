@@ -11,6 +11,7 @@ export const SearchResults: FC<SearchResultsProps> = ({
   people_number,
   onFilmsClick,
   onPeopleClick,
+  onTvShowsClick,
   className,
   focusedButton,
   ...props
@@ -27,7 +28,12 @@ export const SearchResults: FC<SearchResultsProps> = ({
           onClick={onFilmsClick}
           isFocused={focusedButton === 'films'}
         />
-        <SearchResultsButton title='TV Shows' number={tvShows_number} />
+        <SearchResultsButton
+          title='TV Shows'
+          number={tvShows_number}
+          onClick={onTvShowsClick}
+          isFocused={focusedButton === 'tvShows'}
+        />
         <SearchResultsButton
           title='People'
           number={people_number}

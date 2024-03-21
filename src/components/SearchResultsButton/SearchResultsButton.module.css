@@ -5,14 +5,14 @@
 }
 
 .button:hover {
-  background-color: var(--bg-secondary-color);
-}
-
-.button:focus {
-  background-color: var(--bg-secondary-color);
+  background-color: #eeeffa;
 }
 
 .button-focused {
+  background-color: var(--bg-secondary-color);
+}
+
+.button-focused:hover {
   background-color: var(--bg-secondary-color);
 }
 
@@ -25,7 +25,7 @@
 }
 
 .button-number {
-  border: 1px solid var(--text-primary-color);
+  border: 1px solid var(--paper-color);
   border-radius: 8px;
   padding: 2px;
   background-color: var(--paper-color);

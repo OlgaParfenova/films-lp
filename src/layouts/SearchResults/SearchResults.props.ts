@@ -6,7 +6,8 @@ type SearchResults = {
   people_number: number;
   onFilmsClick: () => void;
   onPeopleClick: () => void;
-  focusedButton: 'films' | 'people' | 'tvShow' | '';
+  onTvShowsClick: () => void;
+  focusedButton: 'films' | 'people' | 'tvShows' | '';
 };
 
 export type SearchResultsProps = HTMLAttributes<HTMLDivElement> & SearchResults;

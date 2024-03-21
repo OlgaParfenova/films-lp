@@ -1,5 +1,8 @@
 import { HTMLAttributes } from 'react';
-import { SearchResult } from '../../API/searchApi/getSearchEndpoint';
+import { SearchFilmsResult } from '../../API/searchFilmsApi/getSearchFilmsEndpoint/models';
 
 export type SearchItemFilmProps = Omit<HTMLAttributes<HTMLDivElement>, 'id'> &
-  SearchResult;
+  Pick<
+    SearchFilmsResult,
+    'title' | 'release_date' | 'overview' | 'poster_path' | 'id'
+  >;

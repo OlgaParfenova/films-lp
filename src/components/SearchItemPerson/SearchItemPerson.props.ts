@@ -1,5 +1,8 @@
 import { HTMLAttributes } from 'react';
-import { SearchResult } from '../../API/searchApi/getSearchEndpoint';
+import { SearchPeopleResult } from '../../API/searchPeopleApi/getSearchPeopleEndpoint/models';
 
 export type SearchItemPersonProps = Omit<HTMLAttributes<HTMLDivElement>, 'id'> &
-  SearchResult;
+  Pick<
+    SearchPeopleResult,
+    'name' | 'profile_path' | 'known_for_department' | 'known_for' | 'id'
+  >;

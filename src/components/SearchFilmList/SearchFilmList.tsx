@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { SearchFilmListProps } from './SearchFilmList.props';
-import { SearchItemFilm } from '..';
+import { SearchItemFilm } from '../SearchItemFilm';
 
 export const SearchFilmList: FC<SearchFilmListProps> = ({ films }) => {
   return films.map((element) => (

@@ -1,5 +1,5 @@
-import { SearchResult } from '../../API/searchApi/getSearchEndpoint';
+import { SearchPeopleResult } from '../../API/searchPeopleApi/getSearchPeopleEndpoint/models';
 
 export type SearchPersonListProps = {
-  people: SearchResult[];
+  people: SearchPeopleResult[];
 };

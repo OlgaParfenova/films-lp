@@ -45,6 +45,18 @@ export const router = createBrowserRouter([
         element: <SearchPage />,
       },
       {
+        path: routes.searchFilmsPageURL,
+        element: <SearchPage />,
+      },
+      {
+        path: routes.searchPeoplePageURL,
+        element: <SearchPage />,
+      },
+      {
+        path: routes.searchTvShowsPageURL,
+        element: <SearchPage />,
+      },
+      {
         path: routes.filmPageURL(':id'),
         element: <FilmDetailsPage />,
       },

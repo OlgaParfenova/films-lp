@@ -1,7 +1,7 @@
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useMatch, useNavigate } from 'react-router-dom';
 import { Spin } from 'antd';
-import { ChangeEvent, useState } from 'react';
-import { useGetSearchQuery } from '../../API/searchApi/getSearchEndpoint';
+import { ChangeEvent, useEffect, useState } from 'react';
+import ReactPaginate from 'react-paginate';
 import {
   Button,
   Paragraph,
@@ -11,6 +11,11 @@ import {
 } from '../../components';
 import { SearchResults } from '../../layouts';
 import { FocusedButtonUnion } from '../static';
+import { SearchTvShowList } from '../../components/SearchTvShowList';
+import { routes } from '../../router/routes';
+import { useGetSearchFilmsQuery } from '../../API/searchFilmsApi/getSearchFilmsEndpoint';
+import { useGetSearchPeopleQuery } from '../../API/searchPeopleApi/getSearchPeopleEndpoint';
+import { useGetSearchTvShowsQuery } from '../../API/searchTvShowsApi/getSearchTvShowsEndpoint';
 import styles from './SearchPage.module.css';
 
 export const SearchPage = () => {
@@ -18,18 +23,67 @@ export const SearchPage = () => {
   const [searchInput, setSearchInput] = useState('');
   const [isError, setIsError] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [selectedList, setSelectedList] = useState('films');
   const [focusedButton, setFocusedButton] = useState<FocusedButtonUnion>('');
+  const [resetPaginatorKey, setResetPaginatorKey] = useState<string>('');
+  const navigate = useNavigate();
+
+  const matchPeople = useMatch(routes.searchPeoplePageURL);
+  const matchTvShows = useMatch(routes.searchTvShowsPageURL);
+  const matchFilms = useMatch(routes.searchFilmsPageURL);
+
+  const isPeople = !!matchPeople;
+  const isTvShows = !!matchTvShows;
+  const isFilms = !!matchFilms;
+
+  const pageNumber = searchParams.has('page')
+    ? +(searchParams.get('page') as string)
+    : 1;
 
   const searchParamsObj = Object.fromEntries(searchParams);
 
-  const { data, isLoading } = useGetSearchQuery({
-    searchParams: searchParamsObj,
-  });
+  const { data: filmsData, isLoading: isFilmsLoading } = useGetSearchFilmsQuery(
+    {
+      searchParams: searchParamsObj,
+    }
+  );
+  const { data: tvShowsData, isLoading: isTvShowsLoading } =
+    useGetSearchTvShowsQuery({
+      searchParams: searchParamsObj,
+    });
+  const { data: peopleData, isLoading: isPeopleLoading } =
+    useGetSearchPeopleQuery({
+      searchParams: searchParamsObj,
+    });
 
-  const films = data?.results.filter((item) => item.media_type === 'movie');
-  const tvShows = data?.results.filter((item) => item.media_type === 'tv');
-  const people = data?.results.filter((item) => item.media_type === 'person');
+  const currentData = isPeople
+    ? peopleData
+    : isTvShows
+    ? tvShowsData
+    : filmsData;
+
+  const pageCount = currentData ? currentData.total_pages : 0;
+
+  useEffect(() => {
+    if (searchParams.has('page')) return;
+    setResetPaginatorKey(String(Math.random()));
+  }, [searchParams]);
+
+  useEffect(() => {
+    if (matchPeople) {
+      setFocusedButton('people');
+    } else if (matchTvShows) {
+      setFocusedButton('tvShows');
+    } else if (matchFilms) {
+      setFocusedButton('films');
+    }
+  }, [matchPeople, matchTvShows, matchFilms]);
+
+  useEffect(() => {
+    const query = searchParams.get('query');
+    if (query) {
+      setSearchInput(query);
+    }
+  }, [searchParams]);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchInput(e.target.value);
@@ -43,27 +97,35 @@ export const SearchPage = () => {
       setSearchParams({ query: searchInput });
       setIsError(false);
       setIsSuccess(true);
-      setSelectedList('films');
-      setFocusedButton('films');
     }
   };
 
   const handleSelectFilms = () => {
-    setSelectedList('films');
-    setFocusedButton('films');
+    navigate({
+      pathname: routes.searchFilmsPageURL,
+      search: `?query=${searchInput}`,
+    });
+  };
+
+  const handleSelectTvShows = () => {
+    navigate({
+      pathname: routes.searchTvShowsPageURL,
+      search: `?query=${searchInput}`,
+    });
   };
 
   const handleSelectPeople = () => {
-    setSelectedList('people');
-    setFocusedButton('people');
+    navigate({
+      pathname: routes.searchPeoplePageURL,
+      search: `?query=${searchInput}`,
+    });
   };
 
-  if (!data || (!data && isLoading))
-    return (
-      <div className={styles['search-page__container']}>
-        <Spin size='large' />
-      </div>
-    );
+  const handlePaginationChange = ({ selected }: { selected: number }) => {
+    const newSearchParams = new URLSearchParams(searchParams);
+    newSearchParams.set('page', String(selected + 1));
+    setSearchParams(newSearchParams);
+  };
 
   return (
     <div className={styles['search-page__background']}>
@@ -93,25 +155,64 @@ export const SearchPage = () => {
         <div className={styles['search-page__search-results']}>
           <div className={styles['search-page__search-results__panel']}>
             <SearchResults
-              films_number={films?.length || 0}
-              tvShows_number={tvShows?.length || 0}
-              people_number={people?.length || 0}
+              films_number={filmsData?.total_results || 0}
+              tvShows_number={tvShowsData?.total_results || 0}
+              people_number={peopleData?.total_results || 0}
               onFilmsClick={handleSelectFilms}
               onPeopleClick={handleSelectPeople}
+              onTvShowsClick={handleSelectTvShows}
               focusedButton={focusedButton}
             />
           </div>
-          {selectedList === 'films' && films ? (
+          {isFilms && (
             <div className={styles['search-page__search-results__film-list']}>
-              <SearchFilmList films={films} />
+              {isFilmsLoading ? (
+                <Spin size='large' />
+              ) : (
+                filmsData && <SearchFilmList films={filmsData.results} />
+              )}
             </div>
-          ) : null}
-          {selectedList === 'people' && people ? (
+          )}
+          {isTvShows && (
+            <div className={styles['search-page__search-results__film-list']}>
+              {isTvShowsLoading ? (
+                <Spin size='large' />
+              ) : (
+                tvShowsData && (
+                  <SearchTvShowList tvShows={tvShowsData.results} />
+                )
+              )}
+            </div>
+          )}
+          {isPeople && (
             <div className={styles['search-page__search-results__people-list']}>
-              <SearchPersonList people={people} />
+              {isPeopleLoading ? (
+                <Spin size='large' />
+              ) : (
+                peopleData && <SearchPersonList people={peopleData.results} />
+              )}
             </div>
-          ) : null}
+          )}
         </div>
+        {pageCount > 1 ? (
+          <ReactPaginate
+            key={resetPaginatorKey}
+            previousLabel={'Previous'}
+            nextLabel={'Next'}
+            breakLabel={'...'}
+            pageCount={pageCount}
+            marginPagesDisplayed={1}
+            pageRangeDisplayed={3}
+            initialPage={pageNumber - 1}
+            onPageChange={handlePaginationChange}
+            containerClassName={styles['pagination-container']}
+            breakClassName={styles['pagination-item']}
+            previousClassName={styles['pagination-item']}
+            nextClassName={styles['pagination-item']}
+            activeLinkClassName={styles['pagination-item-active']}
+            pageLinkClassName={styles['pagination-item']}
+          />
+        ) : null}
       </div>
     </div>
   );
