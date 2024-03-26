@@ -17,15 +17,22 @@ export const PersonDetails: FC<PersonDetailsProps> = ({ personData }) => {
 
   return (
     <div className={styles['person-details__container']}>
-      <div
-        className={styles['person-details__poster']}
-        style={{
-          backgroundImage: `url(https://image.tmdb.org/t/p/original${profile_path})`,
-        }}></div>
+      {profile_path ? (
+        <div
+          className={styles['person-details__poster']}
+          style={{
+            backgroundImage: `url(https://image.tmdb.org/t/p/original${profile_path})`,
+          }}></div>
+      ) : (
+        <div
+          className={styles['person-details__poster']}
+          style={{
+            backgroundImage: 'url(/img/emptyPerson.jpg)',
+          }}></div>
+      )}
+
       <div className={styles['person-details__info']}>
-        <Title className={styles['person-details__info__name']}>
-          {name}
-        </Title>
+        <Title className={styles['person-details__info__name']}>{name}</Title>
         <div className={styles['person-details__info__item']}>
           <Paragraph size='xm' weight='600'>
             Birthday
