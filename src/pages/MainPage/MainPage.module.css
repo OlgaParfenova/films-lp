@@ -38,3 +38,7 @@
 .mainPage__now-playing-block__title {
   margin-bottom: 50px;
 }
+
+.main-page__error-message {
+  color: #c32d2a;
+}
