@@ -10,6 +10,7 @@ import {
   TvShowDetailsPage,
   PersonDetailsPage,
   MainPage,
+  SearchPage,
 } from '../pages';
 import { routes } from './routes';
 import { Layout } from '../Layout';
@@ -38,6 +39,22 @@ export const router = createBrowserRouter([
       {
         path: routes.registerPageURL,
         element: <RegisterPage />,
+      },
+      {
+        path: routes.searchPageURL,
+        element: <SearchPage />,
+      },
+      {
+        path: routes.searchFilmsPageURL,
+        element: <SearchPage />,
+      },
+      {
+        path: routes.searchPeoplePageURL,
+        element: <SearchPage />,
+      },
+      {
+        path: routes.searchTvShowsPageURL,
+        element: <SearchPage />,
       },
       {
         path: routes.filmPageURL(':id'),

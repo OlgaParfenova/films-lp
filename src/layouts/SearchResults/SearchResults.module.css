@@ -1,0 +1,13 @@
+.search-results {
+  width: 260px;
+}
+
+.search-results__paper {
+  padding: 14px 0;
+}
+
+.search-results__title {
+  font-weight: 700;
+  margin-bottom: 14px;
+  padding-left: 20px;
+}

@@ -1,0 +1,32 @@
+.button {
+  width: 100%;
+  cursor: pointer;
+  height: 40px;
+}
+
+.button:hover {
+  background-color: #eeeffa;
+}
+
+.button-focused {
+  background-color: var(--bg-secondary-color);
+}
+
+.button-focused:hover {
+  background-color: var(--bg-secondary-color);
+}
+
+.button-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.button-number {
+  border: 1px solid var(--paper-color);
+  border-radius: 8px;
+  padding: 2px;
+  background-color: var(--paper-color);
+}

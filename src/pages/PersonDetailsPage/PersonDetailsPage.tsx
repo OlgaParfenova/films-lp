@@ -38,7 +38,7 @@ export const PersonDetailsPage = () => {
     <div className={styles['person-details__bg']}>
       <div className={styles['person-details']}>
         <PersonDetails personData={personData} />
-        {cast ? <PersonWork title='Acting' works={cast} /> : null}
+        {cast?.length ? <PersonWork title='Acting' works={cast} /> : null}
         {directingWorks.length ? (
           <PersonWork title='Directing' works={directingWorks} />
         ) : null}

@@ -1,0 +1,40 @@
+.search-item-person__wrap {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 70px;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.search-item-person__picture {
+  width: 70px;
+  height: 70px;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+  flex-grow: 0;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.search-item-person__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.info__name {
+  cursor: pointer;
+}
+
+.info__name:hover {
+  color: var(--secondary-main-color);
+}
+
+.info__work-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}

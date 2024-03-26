@@ -1,0 +1,75 @@
+.search-page__background {
+  background-image: url('/img/recOne.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 150vh;
+}
+
+.search-page__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.search-page__search-block {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  padding-top: 50px;
+}
+
+.search-page__search-block__button {
+  padding: 10px 34px;
+}
+
+.search-page__search-block__button:hover {
+  padding: 10px 34px;
+}
+
+.search-page__error-message {
+  color: #c32d2a;
+}
+
+.search-page__search-results {
+  margin-top: 50px;
+  display: flex;
+  justify-content: start;
+  margin-bottom: 40px;
+}
+
+.search-page__search-results__film-list {
+  margin-left: 40px;
+}
+
+.search-page__search-results__people-list {
+  margin-left: 40px;
+}
+
+.pagination-container {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.pagination-item {
+  font-size: 12px;
+  padding: 6px 12px;
+  border: 2px solid var(--primary-main-color);
+  border-radius: 50px;
+  background-color: none;
+  color: var(--primary-main-color);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  cursor: pointer;
+}
+
+.pagination-item-active {
+  background-color: var(--primary-main-color);
+  color: var(--paper-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}

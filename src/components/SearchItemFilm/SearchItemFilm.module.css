@@ -1,0 +1,34 @@
+.search-item-film__paper {
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 12px;
+}
+
+.search-item-film__picture {
+  width: 96px;
+  height: 140px;
+  box-sizing: border-box;
+  background-size: cover;
+  background-position: center;
+  flex-grow: 0;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.search-item-film__info {
+  padding: 20px 14px;
+}
+
+.info__title {
+  margin-bottom: 6px;
+  cursor: pointer;
+}
+
+.info__title:hover {
+  color: var(--secondary-main-color);
+}
+
+.info__date {
+  margin-bottom: 18px;
+}
