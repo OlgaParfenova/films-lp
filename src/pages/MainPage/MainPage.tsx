@@ -16,13 +16,22 @@ import styles from './MainPage.module.css';
 export const MainPage = () => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
+  const [isError, setIsError] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
   const { data: filmsData, isLoading } = useGetNowPlayingFilmsQuery();
 
   const handleSearchButtonClick = () => {
-    navigate({
-      pathname: routes.searchFilmsPageURL,
-      search: `?query=${searchQuery}`,
-    });
+    if (searchQuery.length < 2) {
+      setIsError(true);
+      setIsSuccess(false);
+    } else {
+      setIsError(false);
+      setIsSuccess(true);
+      navigate({
+        pathname: routes.searchFilmsPageURL,
+        search: `?query=${searchQuery}`,
+      });
+    }
   };
 
   const handleSearchInput = (e: ChangeEvent<HTMLInputElement>) => {
@@ -50,6 +59,8 @@ export const MainPage = () => {
             placeholder='Search for a movie, tv show, person ...'
             onChange={handleSearchInput}
             value={searchQuery}
+            isError={isError}
+            isSuccess={isSuccess}
           />
           <Button
             fill='secondaryFill'
@@ -58,6 +69,13 @@ export const MainPage = () => {
             Search
           </Button>
         </div>
+        {isError && (
+          <Paragraph
+            weight='600'
+            className={styles['main-page__error-message']}>
+            The request must have at least 2 characters
+          </Paragraph>
+        )}
         <div className={styles['mainPage__now-playing-block']}>
           <Title className={styles['mainPage__now-playing-block__title']}>
             Now playing:
