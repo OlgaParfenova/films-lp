@@ -1,8 +1,9 @@
-import { FC } from 'react';
+import { FC, SyntheticEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Paragraph } from '../Paragraph';
 import { PersonCardProps } from './PersonCard.props';
 import { routes } from '../../router/routes';
+import EmptyPicture from '/img/emptyPerson.jpg';
 import styles from './PersonCard.module.css';
 
 export const PersonCard: FC<PersonCardProps> = ({
@@ -27,7 +28,14 @@ export const PersonCard: FC<PersonCardProps> = ({
       <div
         className={styles['card__poster']}
         onClick={handlePersonDetailsClick}>
-        <img src={profile_path} alt='poster' />
+        <img
+          src={profile_path || EmptyPicture}
+          alt='poster'
+          onError={(e: SyntheticEvent<HTMLImageElement, Event>) => {
+            e.currentTarget.onerror = null;
+            e.currentTarget.src = EmptyPicture;
+          }}
+        />
         <div className={styles['card__poster-overlay']}>
           <Paragraph size='xm' color='default'>
             Learn more
