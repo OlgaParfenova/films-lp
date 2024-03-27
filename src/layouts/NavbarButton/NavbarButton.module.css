@@ -12,7 +12,7 @@
 }
 
 .navbar__link:hover {
-  color: var(--secondary-main-color);
+  color: var(--primary-main-color);
 }
 
 .capitalized {
@@ -22,7 +22,7 @@
 .active {
   border: 2px solid var(--primary-main-color);
   background-color: var(--primary-main-color);
-  color: var(--paper-color);
+  color: var(--button-text-color);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   transition: border-color 0.3s ease, background-color 0.3s ease,
     color 0.3s ease, box-shadow 0.3s ease;
@@ -30,5 +30,5 @@
 }
 
 .active:hover {
-  color: var(--paper-color);
+  color: var(--button-text-color);
 }

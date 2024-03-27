@@ -34,7 +34,7 @@ export const TvShowDetailsPage = () => {
       />
       <div className={styles['details-page__content']}>
         <TvShowDetailsInfo data={tvShowData} />
-        <div className={styles['details-page__revi  ews-container']}>
+        <div className={styles['details-page__reviews-container']}>
           {reviewsData?.results.length
             ? reviewsData.results.map((rev) => {
                 return (

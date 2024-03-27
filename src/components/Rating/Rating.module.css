@@ -7,7 +7,7 @@
   min-width: 65px;
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 50px;
-  color: var(--paper-color);
+  color: var(--button-text-color);
   font-size: 16px;
   font-weight: 700;
   padding: 6px 11px;
@@ -16,5 +16,5 @@
 .rating-icon {
   height: 18px;
   position: static;
-  fill: var(--paper-color);
+  fill: var(--button-text-color);
 }
