@@ -1,3 +1,5 @@
+import { store } from './store';
+
 export type SearchParams = {
   [key: string]: string;
 };
@@ -29,3 +31,5 @@ export type Dates = {
   maximum: string;
   minimum: string;
 };
+
+export type RootState = ReturnType<typeof store.getState>;

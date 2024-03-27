@@ -1,15 +1,16 @@
 import { ConfigProvider } from 'antd';
-import { FC, PropsWithChildren } from 'react';
-import { lightTheme } from '../../constants';
+import { FC, PropsWithChildren, useEffect } from 'react';
+import { darkTheme, lightTheme } from '../../constants';
+import { useTypedSelector } from '../../API/hooks';
 
 export const AntThemeProvider: FC<PropsWithChildren> = ({ children }) => {
-  //   const [theme, setTheme] = useState<'light' | 'dark'>('light'); ::TODO
+  const darkMode = useTypedSelector((state) => state.theme.darkMode);
+  const theme = darkMode ? darkTheme : lightTheme;
 
-  return (
-    <ConfigProvider
-      //   theme={{ token: theme === 'light' ? lightTheme : darkTheme }}> ::TODO
-      theme={{ token: lightTheme }}>
-      {children}
-    </ConfigProvider>
-  );
+  useEffect(() => {
+    const htmlElement = document.documentElement;
+    htmlElement.setAttribute('data-theme', darkMode ? 'dark' : 'light');
+  }, [darkMode]);
+
+  return <ConfigProvider theme={{ token: theme }}>{children}</ConfigProvider>;
 };
