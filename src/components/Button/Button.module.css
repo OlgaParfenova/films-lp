@@ -14,7 +14,7 @@
 
 .button:hover {
   background-color: var(--primary-main-color);
-  color: var(--paper-color);
+  color: var(--button-text-color);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -23,7 +23,7 @@
   border: 2px solid var(--paper-color);
   background-color: none;
   text-transform: capitalize;
-  color: var(--paper-color);
+  color: var(--button-text-color);
 }
 
 .button-defaultBorder:hover {
@@ -52,7 +52,7 @@
 .button-secondaryBorder:hover {
   border: 2px solid var(--secondary-main-color);
   background-color: var(--secondary-main-color);
-  color: var(--paper-color);
+  color: var(--button-text-color);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   transition: border-color 0.3s ease, background-color 0.3s ease,
     color 0.3s ease, box-shadow 0.3s ease;
@@ -74,14 +74,14 @@
 .button-primaryFill {
   padding: 10px 14px;
   background-color: var(--primary-main-color);
-  color: var(--paper-color);
+  color: var(--button-text-color);
   border: none;
 }
 
 .button-primaryFill:hover {
   padding: 10px 14px;
   background-color: var(--secondary-main-color);
-  color: var(--paper-color);
+  color: var(--button-text-color);
   border: none;
   transition: color 0.3s ease;
 }
@@ -97,7 +97,7 @@
   padding: 10px 14px;
   background-color: var(--secondary-main-color);
   border: 2px solid var(--secondary-main-color);
-  color: var(--paper-color);
+  color: var(--button-text-color);
 }
 
 .button-secondaryFill:hover {
@@ -113,7 +113,7 @@
 }
 
 .button-defaultText {
-  color: var(--paper-color);
+  color: var(--button-text-color);
 }
 
 .button-primaryText {
@@ -151,7 +151,7 @@
 
 .active {
   background-color: var(--primary-main-color);
-  color: var(--paper-color);
+  color: var(--button-text-color);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }

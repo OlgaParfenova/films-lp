@@ -1,11 +1,22 @@
-import { Button } from '../../components';
-import Logo from '../../assets/icons/Logo.svg';
 import { NavLink } from 'react-router-dom';
+import { Switch } from 'antd';
+import { useDispatch } from 'react-redux';
+import { MoonOutlined, SunOutlined } from '@ant-design/icons';
+import Logo from '../../assets/icons/Logo.svg';
 import { routes } from '../../router/routes';
 import { NavbarButton } from '../NavbarButton';
+import { toggleTheme } from '../../API/themeSlice';
+import { useTypedSelector } from '../../API/hooks';
 import styles from './Navbar.module.css';
 
 export const Navbar = () => {
+  const darkMode = useTypedSelector((state) => state.theme.darkMode);
+  const dispatch = useDispatch();
+
+  const handleThemeChange = (checked: boolean) => {
+    dispatch(toggleTheme(checked));
+  };
+
   return (
     <div className={styles['navbar']}>
       <div className={styles['navbar__content']}>
@@ -29,7 +40,12 @@ export const Navbar = () => {
             text='Register'
             capitalized={true}
           />
-          <Button border='noBorder'>Switch</Button>
+          <Switch
+            checkedChildren={<MoonOutlined />}
+            unCheckedChildren={<SunOutlined />}
+            checked={darkMode}
+            onChange={handleThemeChange}
+          />
         </div>
       </div>
     </div>
