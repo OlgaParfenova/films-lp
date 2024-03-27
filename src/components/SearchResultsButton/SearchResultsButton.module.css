@@ -5,15 +5,15 @@
 }
 
 .button:hover {
-  background-color: #eeeffa;
+  background-color: #b6b3b5;
 }
 
 .button-focused {
-  background-color: var(--bg-secondary-color);
+  background-color: var(--bg-primary-color);
 }
 
 .button-focused:hover {
-  background-color: var(--bg-secondary-color);
+  background-color: var(--bg-primary-color);
 }
 
 .button-wrap {
