@@ -1,17 +1,17 @@
-.loginPage__background {
+.registerPage__background {
   background-image: url('/img/loginBg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
 }
 
-.loginPage__container {
+.registerPage__container {
   max-width: 1200px;
   margin: 0 auto;
   padding-top: 100px;
 }
 
-.loginPage__form {
+.registerPage__form {
   width: 100%;
   border-radius: 50px;
   background-color: transparent;
@@ -22,7 +22,7 @@
   min-height: 500px;
 }
 
-.loginPage__form__title {
+.registerPage__form__title {
   width: 50%;
   flex: 0 0 auto;
   text-align: center;
@@ -32,7 +32,7 @@
   margin-bottom: 20px;
 }
 
-.loginPage__form__inputs {
+.registerPage__form__inputs {
   flex: 1 1 auto;
   background-color: var(--paper-color);
   align-self: stretch;
@@ -45,7 +45,7 @@
 }
 
 .inputs__title {
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 .inputs__paragraph {
@@ -61,6 +61,9 @@
   margin-bottom: 30px;
 }
 
-.inputs__checkbox {
-  margin-bottom: 50px;
+.inputs__field-password {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  margin-bottom: 30px;
 }
