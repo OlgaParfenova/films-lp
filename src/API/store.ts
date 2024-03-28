@@ -15,6 +15,7 @@ import { searchFilmsApi } from './searchFilmsApi';
 import { searchPeopleApi } from './searchPeopleApi';
 import { searchTvShowsApi } from './searchTvShowsApi';
 import { themeSlice } from './themeSlice';
+import { registerUserApi } from './registerUserApi';
 
 export const store = configureStore({
   reducer: {
@@ -34,6 +35,7 @@ export const store = configureStore({
     [searchPeopleApi.reducerPath]: searchPeopleApi.reducer,
     [searchTvShowsApi.reducerPath]: searchTvShowsApi.reducer,
     [themeSlice.reducerPath]: themeSlice.reducer,
+    [registerUserApi.reducerPath]: registerUserApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
@@ -51,6 +53,7 @@ export const store = configureStore({
       nowPlayingfFilmsApi.middleware,
       searchFilmsApi.middleware,
       searchPeopleApi.middleware,
-      searchTvShowsApi.middleware
+      searchTvShowsApi.middleware,
+      registerUserApi.middleware
     ),
 });

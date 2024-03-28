@@ -33,7 +33,7 @@ export const InputField: FC<InputFieldProps> = ({
   const divClassnames = useMemo(() => {
     return classNames(styles['input-block'], className, {
       [styles['focused']]: isFocus,
-      [styles['error']]: isError,
+      [styles['error']]: isError || !isSuccess,
       [styles['success']]: isSuccess,
       [styles['with-content']]: !isFocus && inputValue.trim().length > 0,
     });
