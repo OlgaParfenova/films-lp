@@ -7,10 +7,11 @@ export const RegisterPage = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [isCorrect, setIsCorrect] = useState<boolean>();
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [isCorrect, setIsCorrect] = useState(false);
+  const [isIncorrect, setIsIncorrect] = useState(true);
 
-  const [registerUser, { isLoading, isError, error, data }] =
+  const [registerUser, { isError, data }] =
     usePostRegisterUserMutation();
 
   const handleSubmit = async (e: FormEvent) => {
@@ -39,11 +40,12 @@ export const RegisterPage = () => {
   };
 
   useEffect(() => {
-    if (password === confirmPassword) {
+    if (password && confirmPassword && password === confirmPassword) {
       setIsCorrect(true);
+      setIsIncorrect(false);
     } else {
       setIsCorrect(false);
-      setPassword('');
+      setIsIncorrect(true);
     }
   }, [password, confirmPassword]);
 
@@ -87,12 +89,14 @@ export const RegisterPage = () => {
                 type='password'
                 onChange={handlePasswordInput}
                 isSuccess={isCorrect}
+                isError={isIncorrect}
               />
               <InputField
                 placeholder='Comfirm password'
                 type='password'
                 onChange={handleConfirmPasswordInput}
                 isSuccess={isCorrect}
+                isError={isIncorrect}
               />
             </div>
             <Button border='secondaryBorder' fill='secondaryFill' capitalised>

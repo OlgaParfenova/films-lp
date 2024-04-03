@@ -1,6 +1,9 @@
 .film-details-info__container {
   max-width: 1200px;
   margin: 0 auto 40px;
+}
+
+.film-details-info__container__wrapper {
   display: flex;
   flex-direction: row;
   gap: 150px;
@@ -47,4 +50,9 @@
   background-position: center;
   flex-grow: 0;
   flex-shrink: 0;
+}
+
+.film-details-info__player {
+  margin: 20px auto;
+  display: block;
 }

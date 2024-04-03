@@ -1,6 +1,9 @@
 .tvshow-details-info__container {
   max-width: 1200px;
   margin: 0 auto 40px;
+}
+
+.tvshow-details-info__container__wrapper {
   display: flex;
   flex-direction: row;
   gap: 100px;
@@ -59,4 +62,9 @@
   background-position: center;
   flex-grow: 0;
   flex-shrink: 0;
+}
+
+.tvshow-details-info__player {
+  margin: 20px auto;
+  display: block;
 }
