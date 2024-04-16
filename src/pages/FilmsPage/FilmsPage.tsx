@@ -107,7 +107,7 @@ export const FilmsPage = () => {
       <div className={styles['filmsPage__container']}>
         <Title className={styles['filmsPage__title']}>Films Page</Title>
         <div className={styles['filmsPage__content-wrapper']}>
-          <FilmFilters />
+          <FilmFilters className={styles['filmsPage__filters']} />
           <FilmCardGrid>
             <FilmsList films={data.results} />
           </FilmCardGrid>

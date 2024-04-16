@@ -5,8 +5,9 @@
 }
 
 .filmsPage__container {
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 40px auto;
+  padding: 0 20px;
 }
 
 .filmsPage__title {
@@ -49,4 +50,49 @@
   color: var(--button-text-color);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media (max-width: 1199px) {
+  .filmsPage__container {
+    margin: 30px auto;
+  }
+
+  .filmsPage__title {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .filmsPage__title {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 575px) {
+  .filmsPage__title {
+    text-align: center;
+  }
+
+  .filmsPage__content-wrapper {
+    flex-direction: column;
+  }
+
+  .filmsPage__filters {
+    width: 400px;
+  }
+
+  .pagination-container {
+    gap: 3px;
+  }
+
+  .pagination-item {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 439px) {
+  .filmsPage__filters {
+    width: 280px;
+  }
 }

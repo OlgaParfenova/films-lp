@@ -6,9 +6,9 @@
 }
 
 .search-page__container {
-  max-width: 1200px;
-  margin: 0 auto;
-  margin-bottom: 50px;
+  max-width: 1240px;
+  margin: 0 auto 50px;
+  padding: 0 20px;
 }
 
 .search-page__search-block {
@@ -19,10 +19,6 @@
 }
 
 .search-page__search-block__button {
-  padding: 10px 34px;
-}
-
-.search-page__search-block__button:hover {
   padding: 10px 34px;
 }
 
@@ -72,4 +68,56 @@
   color: var(--paper-color);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media (max-width: 767px) {
+  .search-page__search-block {
+    padding-top: 40px;
+  }
+
+  .search-page__search-results {
+    margin-top: 40px;
+    flex-direction: column;
+  }
+
+  .search-page__search-results__panel {
+    margin-bottom: 40px;
+  }
+
+  .search-page__search-results__film-list {
+    margin: 0;
+  }
+
+  .search-page__search-results__people-list {
+    margin: 0;
+  }
+}
+
+@media (max-width: 575px) {
+  .search-page__search-block {
+    padding-top: 30px;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .search-page__search-block__button {
+    padding: 14px 64px;
+  }
+
+  .search-page__search-results {
+    margin-top: 30px;
+  }
+
+  .search-page__search-results__panel {
+    margin-bottom: 30px;
+  }
+
+  .pagination-container {
+    gap: 3px;
+  }
+
+  .pagination-item {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
 }

@@ -49,8 +49,8 @@ export const MainPage = () => {
     <div className={styles['mainPage__background']}>
       <div className={styles['mainPage__container']}>
         <div className={styles['mainPage__text']}>
-          <Title>Welcome.</Title>
-          <Paragraph size='xl'>
+          <Title className={styles['mainPage__text__title']}>Welcome.</Title>
+          <Paragraph size='xl' className={styles['mainPage__text__paragraph']}>
             Millions of movies, TV shows and people to discover. Explore now.
           </Paragraph>
         </div>
@@ -80,7 +80,7 @@ export const MainPage = () => {
           <Title className={styles['mainPage__now-playing-block__title']}>
             Now playing:
           </Title>
-          <FilmCardGrid>
+          <FilmCardGrid className={styles['mainPage__now-playing-block__grid']}>
             <FilmsList films={filmsData.results} />
           </FilmCardGrid>
         </div>

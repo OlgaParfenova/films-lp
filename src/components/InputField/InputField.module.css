@@ -63,3 +63,9 @@
   font-size: 10px;
   color: var(--text-secondary-color);
 }
+
+@media (max-width: 575px) {
+  .input-block__label {
+    font-size: 12px;
+  }
+}

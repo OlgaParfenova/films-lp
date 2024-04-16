@@ -1,0 +1,61 @@
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: calc(100% + 100px);
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  transition: 0.15s linear;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.navPanel {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+
+.button {
+  display: block;
+  padding: 6px;
+  background: #fff;
+  border: 1px solid blue;
+  font-size: 12px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+}
+
+.popupPanel {
+  width: 100%;
+  max-width: 280px;
+  padding: 8px;
+  background: #fff;
+  z-index: 51;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  transition: 0.15s linear;
+  transform: translateX(100%);
+}
+
+.popupPanel.openMenu {
+  transform: translateX(0);
+}
+.overlay.openMenu {
+  pointer-events: all;
+  opacity: 1;
+}
+
+.item {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+}

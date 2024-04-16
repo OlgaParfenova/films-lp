@@ -54,7 +54,9 @@ export const FilmDetailsInfo: FC<FilmDetailsInfoProps> = ({
       <div className={styles['film-details-info__container__wrapper']}>
         <div className={styles['film-details-info']}>
           <div className={styles['film-details-info__title']}>
-            <Title>{filmTitle}</Title>
+            <Title className={styles['film-details__title']}>
+              {filmTitle}
+            </Title>
           </div>
           <div className={styles['film-details-info__rating-length-container']}>
             <div className={styles['film-details-info__rating']}>

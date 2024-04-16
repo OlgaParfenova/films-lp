@@ -21,6 +21,8 @@ export const SearchItemPerson: FC<SearchItemPersonProps> = ({
     navigate(`/person/${id}`);
   };
 
+  const titles = known_for.map((item) => item.title).join(', ');
+
   return (
     <div
       className={classNames(styles['search-item-person__wrap'], className)}
@@ -50,17 +52,7 @@ export const SearchItemPerson: FC<SearchItemPersonProps> = ({
         <Paragraph className={styles['info__work']} size='s' color='gray'>
           {known_for_department}
         </Paragraph>
-        <div className={styles['info__work-list']}>
-          {known_for.map((work, index) => {
-            const prefix = index > 0 ? ', ' : '';
-            return (
-              <Paragraph size='s'>
-                {prefix}
-                {work.title?.trim()}
-              </Paragraph>
-            );
-          })}
-        </div>
+        <Paragraph size='s'>{titles}</Paragraph>
       </div>
     </div>
   );

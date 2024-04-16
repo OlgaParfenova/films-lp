@@ -33,8 +33,3 @@
   color: var(--secondary-main-color);
 }
 
-.info__work-list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-}

@@ -11,6 +11,7 @@ import {
   PersonDetailsPage,
   MainPage,
   SearchPage,
+  TestPage,
 } from '../pages';
 import { routes } from './routes';
 import { Layout } from '../Layout';
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
     path: routes.mainPageURL,
     element: <Layout />,
     children: [
+      {
+        path: '/test',
+        element: <TestPage />,
+      },
       {
         path: routes.filmsPageURL,
         element: <FilmsPage />,

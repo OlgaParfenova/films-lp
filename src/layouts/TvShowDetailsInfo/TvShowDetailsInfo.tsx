@@ -74,7 +74,9 @@ export const TvShowDetailsInfo: FC<TvShowDetailsInfoProps> = ({
       <div className={styles['tvshow-details-info__container__wrapper']}>
         <div className={styles['tvshow-details-info']}>
           <div className={styles['tvshow-details-info__title']}>
-            <Title>{name}</Title>
+            <Title className={styles['tvshow-details__title']}>
+              {name}
+            </Title>
           </div>
           <div
             className={styles['tvshow-details-info__rating-length-container']}>
