@@ -23,7 +23,10 @@ export const FilmDetailsInfo: FC<FilmDetailsInfoProps> = ({
   filmId,
   ...props
 }) => {
-  const [showPlayer, setShowPlayer] = useState(false);
+  const [showPlayer, setShowPlayer] = useState({
+    show: false,
+    buttonText: 'Watch Trailer',
+  });
   const releaseYear = year.slice(0, 4);
   const { data: filmTrailersData } = useGetFilmTrailersQuery(filmId);
   const trailers =
@@ -43,9 +46,15 @@ export const FilmDetailsInfo: FC<FilmDetailsInfoProps> = ({
 
   const handleWatchTrailerClick = () => {
     if (firstTrailerKey) {
-      setShowPlayer((state) => !state);
+      setShowPlayer((prevState) => ({
+        show: !prevState.show,
+        buttonText: prevState.show ? 'Watch Trailer' : 'Hide Trailer',
+      }));
     } else {
-      setShowPlayer(false);
+      setShowPlayer({
+        show: false,
+        buttonText: 'Watch Trailer',
+      });
     }
   };
 
@@ -54,9 +63,7 @@ export const FilmDetailsInfo: FC<FilmDetailsInfoProps> = ({
       <div className={styles['film-details-info__container__wrapper']}>
         <div className={styles['film-details-info']}>
           <div className={styles['film-details-info__title']}>
-            <Title className={styles['film-details__title']}>
-              {filmTitle}
-            </Title>
+            <Title className={styles['film-details__title']}>{filmTitle}</Title>
           </div>
           <div className={styles['film-details-info__rating-length-container']}>
             <div className={styles['film-details-info__rating']}>
@@ -67,7 +74,7 @@ export const FilmDetailsInfo: FC<FilmDetailsInfoProps> = ({
             </div>
             {firstTrailerKey ? (
               <Button capitalised onClick={handleWatchTrailerClick}>
-                Watch Trailer
+                {showPlayer.buttonText}
               </Button>
             ) : null}
           </div>
@@ -124,7 +131,7 @@ export const FilmDetailsInfo: FC<FilmDetailsInfoProps> = ({
             backgroundImage: `url(https://image.tmdb.org/t/p/original${poster})`,
           }}></div>
       </div>
-      {showPlayer ? (
+      {showPlayer.show ? (
         <YouTubePlayer
           videoId={firstTrailerKey}
           className={styles['film-details-info__player']}

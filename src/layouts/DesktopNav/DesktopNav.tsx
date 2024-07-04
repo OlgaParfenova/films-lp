@@ -30,7 +30,7 @@ export const DesktopNav = () => {
           <NavbarButton to={routes.tvShowsPageURL} text='TV Shows' />
           <NavbarButton to={routes.peoplePageURL} text='People' />
           <div className={styles['desktopNav__buttons-container__divider']}>|</div>
-          <NavbarButton
+          {/* <NavbarButton
             to={routes.loginPageURL}
             text='Login'
             capitalized={true}
@@ -39,7 +39,7 @@ export const DesktopNav = () => {
             to={routes.registerPageURL}
             text='Register'
             capitalized={true}
-          />
+          /> */}
           <Switch
             checkedChildren={<MoonOutlined />}
             unCheckedChildren={<SunOutlined />}

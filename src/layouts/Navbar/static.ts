@@ -16,8 +16,4 @@ export const navbarData: Item[] = [
     label: 'TV Shows',
     href: '/tvshows',
   },
-  {
-    label: 'Login',
-    href: '/login',
-  },
 ];

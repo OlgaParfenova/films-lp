@@ -15,7 +15,10 @@ export const TvShowDetailsInfo: FC<TvShowDetailsInfoProps> = ({
   tvShowId,
   ...props
 }) => {
-  const [showPlayer, setShowPlayer] = useState(false);
+  const [showPlayer, setShowPlayer] = useState({
+    show: false,
+    buttonText: 'Watch Trailer',
+  });
 
   const {
     name,
@@ -63,9 +66,15 @@ export const TvShowDetailsInfo: FC<TvShowDetailsInfoProps> = ({
 
   const handleWatchTrailerClick = () => {
     if (firstTrailerKey) {
-      setShowPlayer((state) => !state);
+      setShowPlayer((prevState) => ({
+        show: !prevState.show,
+        buttonText: prevState.show ? 'Watch Trailer' : 'Hide Trailer',
+      }));
     } else {
-      setShowPlayer(false);
+      setShowPlayer({
+        show: false,
+        buttonText: 'Watch Trailer',
+      });
     }
   };
 
@@ -74,9 +83,7 @@ export const TvShowDetailsInfo: FC<TvShowDetailsInfoProps> = ({
       <div className={styles['tvshow-details-info__container__wrapper']}>
         <div className={styles['tvshow-details-info']}>
           <div className={styles['tvshow-details-info__title']}>
-            <Title className={styles['tvshow-details__title']}>
-              {name}
-            </Title>
+            <Title className={styles['tvshow-details__title']}>{name}</Title>
           </div>
           <div
             className={styles['tvshow-details-info__rating-length-container']}>
@@ -100,7 +107,7 @@ export const TvShowDetailsInfo: FC<TvShowDetailsInfoProps> = ({
             </div>
             {firstTrailerKey ? (
               <Button capitalised onClick={handleWatchTrailerClick}>
-                Watch Trailer
+                {showPlayer.buttonText}
               </Button>
             ) : null}
           </div>
@@ -206,7 +213,7 @@ export const TvShowDetailsInfo: FC<TvShowDetailsInfoProps> = ({
             backgroundImage: `url(https://image.tmdb.org/t/p/original${poster_path})`,
           }}></div>
       </div>
-      {showPlayer ? (
+      {showPlayer.show ? (
         <YouTubePlayer
           videoId={firstTrailerKey}
           className={styles['tvshow-details-info__player']}

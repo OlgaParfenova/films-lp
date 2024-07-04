@@ -7,6 +7,7 @@
 .person-details {
   max-width: 1200px;
   margin: 50px auto 50px;
+  padding: 0 20px;
 }
 
 .person-details__message {
