@@ -66,3 +66,13 @@
 .card__poster:hover .card__poster-overlay {
   opacity: 1;
 }
+
+@media (max-width: 1199px) {
+  .card {
+    width: 280px;
+  }
+
+  .card__poster {
+    width: 280px;
+  }
+}

@@ -113,7 +113,7 @@ export const TVShowsPage = () => {
       <div className={styles['tvShowsPage__container']}>
         <Title className={styles['tvShowsPage__title']}>TV Shows Page</Title>
         <div className={styles['tvShowsPage__content-wrapper']}>
-          <TvFilters />
+          <TvFilters className={styles['tvShowsPage__filters']} />
           <FilmCardGrid>
             <TVShowsList shows={data.results} />
           </FilmCardGrid>

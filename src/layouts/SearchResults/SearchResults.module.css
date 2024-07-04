@@ -11,3 +11,9 @@
   margin-bottom: 14px;
   padding-left: 20px;
 }
+
+@media (max-width: 767px) {
+  .search-results {
+    width: 100%;
+  }
+}

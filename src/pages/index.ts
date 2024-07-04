@@ -10,3 +10,4 @@ export * from './TvShowDetailsPage';
 export * from './PersonDetailsPage';
 export * from './MainPage';
 export * from './SearchPage';
+export * from './TestPage';

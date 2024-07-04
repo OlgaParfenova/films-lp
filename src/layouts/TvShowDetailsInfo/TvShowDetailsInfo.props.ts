@@ -16,6 +16,7 @@ type TvShowDetailsInfo = {
     created_by: CreatedBy[];
     origin_country: string[];
   };
+  tvShowId: number;
 };
 
 type Genre = {

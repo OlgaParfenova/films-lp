@@ -64,3 +64,23 @@
   left: 20px;
   position: absolute;
 }
+
+@media (max-width: 575px) {
+  .card {
+    width: 400px;
+  }
+
+  .card__poster {
+    width: 400px;
+  }
+}
+
+@media (max-width: 439px) {
+  .card {
+    width: 280px;
+  }
+
+  .card__poster {
+    width: 280px;
+  }
+}

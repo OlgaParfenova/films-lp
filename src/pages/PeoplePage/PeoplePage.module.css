@@ -5,8 +5,9 @@
 }
 
 .peoplePage__container {
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 40px auto;
+  padding: 0 20px;
 }
 
 .peoplePage__title {
@@ -44,4 +45,35 @@
 
 .peoplePage__content {
   margin-bottom: 40px;
+}
+
+@media (max-width: 1199px) {
+  .peoplePage__container {
+    margin: 30px auto;
+  }
+
+  .peoplePage__title {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .peoplePage__title {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 575px) {
+  .peoplePage__title {
+    text-align: center;
+  }
+
+  .pagination__container {
+    gap: 3px;
+  }
+
+  .pagination__item {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
 }

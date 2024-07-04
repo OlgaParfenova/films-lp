@@ -9,6 +9,7 @@ type FilmDetailsInfo = {
   tagline: string;
   storyline: string;
   poster: string;
+  filmId: number;
 };
 
 type Genre = {

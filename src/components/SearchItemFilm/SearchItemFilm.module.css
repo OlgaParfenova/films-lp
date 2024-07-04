@@ -3,11 +3,12 @@
   display: flex;
   flex-direction: row;
   margin-bottom: 12px;
+  height: auto;
 }
 
 .search-item-film__picture {
   width: 96px;
-  height: 140px;
+  height: auto;
   box-sizing: border-box;
   background-size: cover;
   background-position: center;
@@ -26,7 +27,7 @@
 }
 
 .info__title:hover {
-  color: var(--secondary-main-color);
+  color: var(--primary-main-color);
 }
 
 .info__date {

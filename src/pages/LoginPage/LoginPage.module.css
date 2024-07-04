@@ -1,4 +1,66 @@
-.container {
+.loginPage__background {
+  background-image: url('/img/loginBg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.loginPage__container {
   max-width: 1200px;
   margin: 0 auto;
+  padding-top: 100px;
+}
+
+.loginPage__form {
+  width: 100%;
+  border-radius: 50px;
+  background-color: transparent;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-height: 500px;
+}
+
+.loginPage__form__title {
+  width: 50%;
+  flex: 0 0 auto;
+  text-align: center;
+}
+
+.form__title-title {
+  margin-bottom: 20px;
+}
+
+.loginPage__form__inputs {
+  flex: 1 1 auto;
+  background-color: var(--paper-color);
+  align-self: stretch;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inputs__title {
+  margin-bottom: 50px;
+}
+
+.inputs__paragraph {
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+
+.inputs__paragraph:hover {
+  color: var(--secondary-main-color);
+}
+
+.inputs__field {
+  margin-bottom: 30px;
+}
+
+.inputs__checkbox {
+  margin-bottom: 50px;
 }

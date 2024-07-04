@@ -39,6 +39,7 @@ export const FilmDetailsPage = () => {
           storyline={filmData.overview}
           poster={filmData.poster_path}
           year={filmData.release_date}
+          filmId={filmData.id}
         />
         <div className={styles['details-page__reviews-container']}>
           {reviewsData?.results.length

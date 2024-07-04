@@ -5,8 +5,9 @@
 }
 
 .tvShowsPage__container {
-  max-width: calc(1200px);
+  max-width: 1200px;
   margin: 40px auto;
+  padding: 0 20px;
 }
 
 .tvShowsPage__title {
@@ -49,4 +50,49 @@
   color: var(--button-text-color);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media (max-width: 1199px) {
+  .tvShowsPage__container {
+    margin: 30px auto;
+  }
+
+  .tvShowsPage__title {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .tvShowsPage__title {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 575px) {
+  .tvShowsPage__title {
+    text-align: center;
+  }
+
+  .tvShowsPage__content-wrapper {
+    flex-direction: column;
+  }
+
+  .tvShowsPage__filters {
+    width: 400px;
+  }
+
+  .pagination-container {
+    gap: 3px;
+  }
+
+  .pagination-item {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 439px) {
+  .tvShowsPage__filters {
+    width: 280px;
+  }
 }

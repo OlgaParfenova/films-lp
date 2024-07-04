@@ -195,23 +195,23 @@ export const SearchPage = () => {
           )}
         </div>
         {pageCount > 1 ? (
-          <ReactPaginate
-            key={resetPaginatorKey}
-            previousLabel={'Previous'}
-            nextLabel={'Next'}
-            breakLabel={'...'}
-            pageCount={pageCount}
-            marginPagesDisplayed={1}
-            pageRangeDisplayed={3}
-            initialPage={pageNumber - 1}
-            onPageChange={handlePaginationChange}
-            containerClassName={styles['pagination-container']}
-            breakClassName={styles['pagination-item']}
-            previousClassName={styles['pagination-item']}
-            nextClassName={styles['pagination-item']}
-            activeLinkClassName={styles['pagination-item-active']}
-            pageLinkClassName={styles['pagination-item']}
-          />
+            <ReactPaginate
+              key={resetPaginatorKey}
+              previousLabel={'Previous'}
+              nextLabel={'Next'}
+              breakLabel={'...'}
+              pageCount={pageCount}
+              marginPagesDisplayed={1}
+              pageRangeDisplayed={3}
+              initialPage={pageNumber - 1}
+              onPageChange={handlePaginationChange}
+              containerClassName={styles['pagination-container']}
+              breakClassName={styles['pagination-item']}
+              previousClassName={styles['pagination-item']}
+              nextClassName={styles['pagination-item']}
+              activeLinkClassName={styles['pagination-item-active']}
+              pageLinkClassName={styles['pagination-item']}
+            />
         ) : null}
       </div>
     </div>

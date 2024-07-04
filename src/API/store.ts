@@ -15,6 +15,9 @@ import { searchFilmsApi } from './searchFilmsApi';
 import { searchPeopleApi } from './searchPeopleApi';
 import { searchTvShowsApi } from './searchTvShowsApi';
 import { themeSlice } from './themeSlice';
+import { registerUserApi } from './registerUserApi';
+import { filmTrailersApi } from './filmTrailersApi';
+import { tvShowTrailersApi } from './tvShowTrailersApi';
 
 export const store = configureStore({
   reducer: {
@@ -34,6 +37,9 @@ export const store = configureStore({
     [searchPeopleApi.reducerPath]: searchPeopleApi.reducer,
     [searchTvShowsApi.reducerPath]: searchTvShowsApi.reducer,
     [themeSlice.reducerPath]: themeSlice.reducer,
+    [registerUserApi.reducerPath]: registerUserApi.reducer,
+    [filmTrailersApi.reducerPath]: filmTrailersApi.reducer,
+    [tvShowTrailersApi.reducerPath]: tvShowTrailersApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
@@ -51,6 +57,9 @@ export const store = configureStore({
       nowPlayingfFilmsApi.middleware,
       searchFilmsApi.middleware,
       searchPeopleApi.middleware,
-      searchTvShowsApi.middleware
+      searchTvShowsApi.middleware,
+      registerUserApi.middleware,
+      filmTrailersApi.middleware,
+      tvShowTrailersApi.middleware
     ),
 });

@@ -23,3 +23,4 @@ export * from './SearchItemPerson';
 export * from './SearchFilmList';
 export * from './SearchPersonList';
 export * from './SearchItemTvShow';
+export * from './YouTubePlayer';
